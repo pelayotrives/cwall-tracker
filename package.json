@@ -17,5 +17,18 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
-  }
+  },
+  "description": "![Logo](http://imgfz.com/i/4ih1JPW.png)",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pelayotrives/cwall-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pelayotrives/cwall-tracker/issues"
+  },
+  "homepage": "https://github.com/pelayotrives/cwall-tracker#readme"
 }
