@@ -64,16 +64,16 @@ CWall Tracker is a basic app built in JavaScript, Handlebars and Express (among 
 #### style.css
 
 ## routes
-### index.routes.js
+#### index.routes.js
 
 ## utils
-### capitalized.js
+#### capitalized.js
 
 ## views
-### error.hbs
-### index.hbs
-### layout.hbs
-### not-found.hbs
+#### error.hbs
+#### index.hbs
+#### layout.hbs
+#### not-found.hbs
 
 ## others
 #### package-lock.json
