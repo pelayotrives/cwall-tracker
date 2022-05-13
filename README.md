@@ -17,6 +17,7 @@ A basic app where you can track a wide variety of cryptocurrencies. Made in Java
 ## Description
 
 CWall Tracker is a basic app built in JavaScript, Handlebars and Express (among other frameworks). You will see a pretty simple interface where you can check your favorite cryptocurrencies in real time. Feel free to sign up and then access to the app to see special features and be able to expand your knowledge about ETH, BTC and other famouse currencies.
+
 ## MVP
 1.) Relation between databases, APIs and users.
 
@@ -29,27 +30,33 @@ CWall Tracker is a basic app built in JavaScript, Handlebars and Express (among 
 5.) Sign up and log in functionalities available for every user.
 
 (...)
+
 ## Backlog
 
 1.) Add graphics related to cryptocurrencies performance and improve the interface.
 
 2.) News feed.
+
 # Data Structure
+
 ## config
-### index.js
+#### index.js
 ## db
-### index.js
+#### index.js
 ## error-handling
-### index.js
+#### index.js
 ## models
-### User.models.js
-### Crypto.models.js
+#### User.models.js
+#### Crypto.models.js
 ## node_modules
-### A huge amount of modules
+#### Modules
 ## public
 ### images
+#### Images
 ### js
+#### script.js
 ### stylesheets
+#### style.css
 ## routes
 ### index.routes.js
 ## utils
@@ -67,38 +74,19 @@ CWall Tracker is a basic app built in JavaScript, Handlebars and Express (among 
 ### .gitignore
 ### .env
 
-
-
-
-#### tobeincluded.html
-#### tobeincluded.css
-## JavaScript
-### tobeincluded.js
--- Functions to be included --
-### tobeincluded.js
--- Functions to be included --
-### tobeincluded.js
--- Functions to be included --
-### tobeincluded.js
--- Functions to be included --
-### tobeincluded.js
--- Functions to be included --
-### tobeincluded.js
--- Functions to be included --
-
-
-
-
 ## 🔗 Links
 Pablo:
+####
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/pol1987)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pablo-orozco-l%C3%B3pez-65693854/)
 ####
 Josu:
+####
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/JosuMartinSanchez)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/josu-mart%C3%ADn-s%C3%A1nchez-3b459a239/)
 ####
 Pelayo:
+####
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/pelayotrives)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pelayo-trives-pozuelo/)
 
