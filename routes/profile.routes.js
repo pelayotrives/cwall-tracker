@@ -1,7 +1,7 @@
 const UserModel = require("../models/User.model.js");
 const router = require("express").Router();
 
-//GET: (/profile/:id)=> Renderiza los datos de perfil del usuario
+//GET: (/profile)=> Renderiza los datos de perfil del usuario
 router.get("/", async (req, res, next) => {
   const logUser = req.session.user;
   try {
@@ -14,7 +14,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-//POST: (/profile/:id)=> Modifica los datos del usuario
+//POST: (/profile)=> Modifica los datos del usuario
 router.post("/", async (req, res, next) => {
   const logUser = req.session.user;
   const { username, email, password } = req.body;
@@ -31,7 +31,7 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-//POST: (/profile/:id/delete)=> elimina los datos del usuario
+//POST: (/profile/delete)=> elimina los datos del usuario
 router.post("/delete", async (req, res, next) => {
   const logUser = req.session.user;
   try {
