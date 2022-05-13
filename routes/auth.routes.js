@@ -38,6 +38,8 @@ router.post("/signup", async (req, res, next) => {
       errorMessage:
         "Your password should contain at least minimum 8 chars with one number, one uppercase and one lowercase letter!",
     });
+    //? Este return vacío indica que hasta aquí llega mi ruta. Se traduce a: "Si llega a haber un problema, detén la ejecución de la función anónima".
+    return;
   }
 
   // Conectamos con la base de datos para comprobar si existe un usuario con el nombre de usuario que queremos introducir.
