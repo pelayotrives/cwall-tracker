@@ -15,8 +15,7 @@ const cryptoSchema = new Schema({
   userID: {
     type: Schema.Types.ObjectId,
     ref: "user",
-  },
-  d,
+  }
 });
 
 const CryptoModel = model("wallet", cryptoSchema);
