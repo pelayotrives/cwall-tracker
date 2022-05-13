@@ -41,38 +41,48 @@ CWall Tracker is a basic app built in JavaScript, Handlebars and Express (among 
 
 ## config
 #### index.js
+
 ## db
 #### index.js
+
 ## error-handling
 #### index.js
+
 ## models
 #### User.models.js
 #### Crypto.models.js
+
 ## node_modules
-#### Modules
+#### A list of modules
+
 ## public
 ### images
-#### Images
+#### A list of images
 ### js
 #### script.js
 ### stylesheets
 #### style.css
+
 ## routes
 ### index.routes.js
+
 ## utils
 ### capitalized.js
+
 ## views
 ### error.hbs
 ### index.hbs
 ### layout.hbs
 ### not-found.hbs
-### package-lock.json
-### package.json
-### server.js
-### app.js
-### README.md
-### .gitignore
-### .env
+
+## others
+#### package-lock.json
+#### package.json
+#### server.js
+#### app.js
+#### README.md
+#### .gitignore
+#### .env
 
 ## 🔗 Links
 Pablo:
