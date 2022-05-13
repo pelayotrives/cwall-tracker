@@ -1,8 +1,12 @@
 const router = require("express").Router();
 
-/* GET home page */
+// Home
 router.get("/", (req, res, next) => {
   res.render("index");
 });
+
+// Auth
+const authRouthes = require("./auth.routes.js")
+router.use("/auth", authRouthes)
 
 module.exports = router;
