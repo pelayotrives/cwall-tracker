@@ -30,8 +30,7 @@ router.post("/signup", async (req, res, next) => {
   //! 2.) Hacer que el password sea seguro
 
   // Con este RegEx, el password debe incluir mínimo 8 caracteres, una letra minúscula, una letra mayúscula y un número.
-  const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
   if (passwordRegex.test(password) === false) {
     res.render("auth/signup", {
