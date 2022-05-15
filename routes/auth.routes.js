@@ -30,12 +30,11 @@ router.post("/signup", async (req, res, next) => {
   //! 2.) Hacer que el password sea seguro
 
   // Con este RegEx, el password debe incluir mínimo 8 caracteres, una letra minúscula, una letra mayúscula y un número.
-  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
   if (passwordRegex.test(password) === false) {
     res.render("auth/signup", {
-      errorMessage:
-        "Your password should contain at least minimum 8 chars with one number, one uppercase and one lowercase letter!",
+      errorMessage: "Your password should contain at least 8 chars with one number and one lowercase letter!"
     });
     //? Este return vacío indica que hasta aquí llega mi ruta. Se traduce a: "Si llega a haber un problema, detén la ejecución de la función anónima".
     return;
@@ -106,6 +105,7 @@ router.post("/login", async (req, res, next) => {
   }
 
   try {
+
     //! 2.) Validar que el usuario existe en la BBDD
 
     const foundUser = await User.findOne({ username: username });
@@ -137,9 +137,17 @@ router.post("/login", async (req, res, next) => {
     req.session.user = foundUser;
     // Variable global de HBS para mostrar u ocultar elementos (por ejemplo, algunas zonas del NAV dependiendo del rol del usuario).
     req.app.locals.userIsActive = true;
-  } catch (err) {
+
+    //* Esto será lo último que suceda. Una vez se crea el usuario, le redirigimos para que haga login.
+    //! Cuando todo esté hecho en el login, redireccionaremos a profile aquí debajo.
+    
+    
+  }
+  
+  catch (err) {
     next(err);
   }
+
 });
 
 //? ---------------------------------------------------------------------------------
