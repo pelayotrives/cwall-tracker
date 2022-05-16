@@ -13,4 +13,8 @@ router.use("/auth", authRouthes);
 const profileRoutes = require("./profile.routes.js");
 router.use("/profile", profileRoutes);
 
+// Coins
+const coinsRoutes = require("./coinprice.routes.js")
+router.use("/coinprice", coinsRoutes)
+
 module.exports = router;
