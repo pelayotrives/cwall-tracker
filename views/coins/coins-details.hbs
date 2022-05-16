@@ -1,8 +1,33 @@
 <h1>Coin details</h1>
 
+<hr>
+
 {{#each Detail}}
-  <img src="{{this.image}}" alt="" />
+  <img src="{{this.image}}" alt="" width="75px"/>
   <h2>{{this.name}}</h2>
   <h3> {{this.symbol}}</h3>
+  
+  <tr>
+    <td>
+      {{this.current_price}}
+    </td>
+    <td>
+      {{this.market_cap}}
+    </td>
+    <td>
+      {{this.total_volume}}
+    </td>
+    <td>
+      {{this.high_24h}}
+    </td>
+    <td>
+      {{this.low_24h}}
+    </td>
+    <td>
+      {{this.price_change_24h}}
+    </td>
+  </tr>
+
+
 
 {{/each}}

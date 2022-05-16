@@ -2,6 +2,13 @@
 <br />
 {{! Es un bucle dentro de otro bucle porque es un array que contiene arrays que a su vez contiene objetos }}
 
+<form action="">
+  <label for="search">Search Coin</label>
+  <input type="text" name="search">
+  <button>Search</button>
+</form>
+
+
 <table id="priceTable">
 
   <thead>
@@ -17,8 +24,8 @@
 
   <tbody>
 
-    {{#each marketCoin}}
-      {{#each this}}
+    {{#each coinList}}
+      
 
         <tr>
 
@@ -53,7 +60,7 @@
 
         </tr>
 
-      {{/each}}
+      
     {{/each}}
 
   </tbody>

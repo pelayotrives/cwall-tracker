@@ -7,7 +7,7 @@ router.get("/", async (req, res, next) => {
   try {
     let marketCoin = await CoinGeckoClient.coins.markets();
     res.render("coins/coins-prices.hbs", {
-      marketCoin,
+      coinList: marketCoin.data
     });
   } catch (err) {
     next(err);
@@ -34,5 +34,26 @@ router.get("/:id", async (req, res, next) => {
     next(err);
   }
 });
+
+
+// GET para el buscador
+router.get("/", async (req, res, next) => {
+  const { id } = req.params;
+  const { search } = req.query;
+
+  try {
+    if (search === coinDetail.data.name || search === coinDetail.data.symbol) {
+        res.render ("coins/coins-details.hbs", {
+          
+        });
+      }
+
+
+  } catch(err) {
+    next(err)
+  }  
+ 
+})
+
 
 module.exports = router;
