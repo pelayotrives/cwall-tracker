@@ -37,13 +37,17 @@ router.get("/:id", async (req, res, next) => {
 
 // GET para el buscador
 router.get("/", async (req, res, next) => {
-  const { id } = req.params;
   const { search } = req.query;
-
+  console.log(req.query.search);
   try {
-    if (search === coinDetail.data.name || search === coinDetail.data.symbol) {
-      res.render("coins/coins-details.hbs", {});
-    }
+    let marketCoin = await CoinGeckoClient.coins.markets();
+    let searching = marketCoin.data;
+
+    let searchCoin = searching.find((eachCoin) => {
+      if (search.toUpperCase() === eachCoin.name.toUpperCase()) {
+        res.redirect(`/coinprice/${eachCoin.id}`);
+      }
+    });
   } catch (err) {
     next(err);
   }
