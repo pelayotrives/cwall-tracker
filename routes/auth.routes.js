@@ -119,7 +119,7 @@ router.post("/login", async (req, res, next) => {
 
     //! 3.) Validar que el password introducido corresponde al de dicho usuario.
 
-    const passwordCheck = await bcryptjs.compare(password, username.password);
+    const passwordCheck = await bcryptjs.compare(password, foundUser.password);
 
     if (passwordCheck === false) {
       res.render("auth/login.hbs", {
@@ -135,18 +135,19 @@ router.post("/login", async (req, res, next) => {
     // Guardamos todo el usuario gracias a req.session, en la que buscamos la propiedad user y le decimos que foundUser es la sesión.
     // La traducción es: abrimos una sesión del usuario gracias a esto y la siguiente línea.
     req.session.user = foundUser;
+    console.log(foundUser);
     // Variable global de HBS para mostrar u ocultar elementos (por ejemplo, algunas zonas del NAV dependiendo del rol del usuario).
     req.app.locals.userIsActive = true;
 
-    //* Esto será lo último que suceda. Una vez se crea el usuario, le redirigimos para que haga login.
-    //! Cuando todo esté hecho en el login, redireccionaremos a profile aquí debajo.
-    
-    
   }
   
   catch (err) {
     next(err);
   }
+
+  //* Esto será lo último que suceda (después del catch). Una vez se crea el usuario, le redirigimos para que haga login.
+  //! Cuando todo esté hecho en el login, redireccionaremos a profile aquí debajo.
+  res.redirect("/profile")
 
 });
 

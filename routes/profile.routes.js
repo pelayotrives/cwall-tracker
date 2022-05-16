@@ -1,8 +1,12 @@
 const User = require("../models/User.model.js");
 const router = require("express").Router();
 
+router.get("/", (req, res, next) => {
+  res.render("profile/profile.hbs")
+})
+
 //GET: (/profile)=> Renderiza los datos de perfil del usuario
-router.get("/", async (req, res, next) => {
+router.get("/edit", async (req, res, next) => {
   const { user } = req.session;
   console.log(user);
   try {
@@ -16,7 +20,7 @@ router.get("/", async (req, res, next) => {
 });
 
 //POST: (/profile)=> Modifica los datos del usuario
-router.post("/", async (req, res, next) => {
+router.post("/edit", async (req, res, next) => {
   const { user } = req.session;
   const { username, email } = req.body;
   try {
