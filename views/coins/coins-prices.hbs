@@ -1,3 +1,19 @@
 <h1>Precios de todas las monedas</h1>
+{{!-- Es un bucle dentro de otro bucle porque es un array que contiene arrays que a su vez contiene objetos --}}
+
+{{#each marketCoin}}
+    {{#each this}}
+    <table id="priceTable">
+        <img src="{{this.image}}" alt="Coin image" width="20px">
+        {{this.name}}        
+        {{this.symbol}}        
+        {{this.current_price}}        
+        {{this.price_change_percentage_24h}}        
+        {{this.market_cap_rank}}
+    </table>        
+    {{/each}}  
+{{/each}}
+
+
 
 
