@@ -8,14 +8,18 @@ const cryptoSchema = new Schema({
     type: String,
     required: true,
   },
-  shopPrice: {
+  purchasePrice: {
+    type: Number,
+    required: true,
+  },
+  amount: {
     type: Number,
     required: true,
   },
   userID: {
     type: Schema.Types.ObjectId,
     ref: "user",
-  }
+  },
 });
 
 const CryptoModel = model("wallet", cryptoSchema);
