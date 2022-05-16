@@ -17,4 +17,8 @@ router.use("/profile", profileRoutes);
 const coinsRoutes = require("./coinprice.routes.js")
 router.use("/coinprice", coinsRoutes)
 
+// Wallet
+const walletRoutes = require("./wallet.routes.js")
+router.use("/wallet", walletRoutes)
+
 module.exports = router;
