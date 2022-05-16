@@ -3,7 +3,7 @@ const CoinGecko = require('coingecko-api');
 
 //*GET "/coinprice" => Renderizar la vista del listado de monedas.
 
-router.get("/coinprice", (req, res, next) => {
+router.get("/", (req, res, next) => {
     res.render("coins/coins-prices.hbs");
   });
 
