@@ -1,10 +1,10 @@
 <h1>My Wallet</h1>
 <br /><br />
 
-<form action="" method="POST">
+<form action="/wallet" method="POST">
 
   {{! Nombres de todas las monedas }}
-  <select name="select-currency" id="select-currency">
+  <select name="cryptoName" id="select-currency">
     {{#each walletData}}
       <option value="{{this.id}}">{{this.name}}</option>
     {{/each}}
@@ -17,8 +17,8 @@
   <br /><br />
 
   {{! Cantidad a insertar por el usuario de la moneda seleccionada }}
-  <label for="quantity">Quantity: </label>
-  <input type="number" value="" name="quantity" />
+  <label for="amount">Quantity: </label>
+  <input type="number" value="" name="amount" />
   <br /><br />
 
   {{! Valor de la cantidad que tiene el usuario de dicha moneda }}

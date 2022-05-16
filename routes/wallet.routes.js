@@ -17,11 +17,13 @@ router.get("/", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
   const { cryptoName, purchasePrice, amount, userID } = req.body;
+  const { _id } = req.session.user;
   try {
     CryptoModel.create({
       cryptoName,
       purchasePrice,
       amount,
+      userID: _id,
     });
   } catch (err) {
     next(err);

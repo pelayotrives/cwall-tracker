@@ -16,6 +16,12 @@ const cryptoSchema = new Schema({
     type: Number,
     required: true,
   },
+  currentValue: {
+    type: Number,
+  },
+  profit: {
+    type: Number,
+  },
   userID: {
     type: Schema.Types.ObjectId,
     ref: "user",
