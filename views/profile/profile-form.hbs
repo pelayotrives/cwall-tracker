@@ -1,26 +1,26 @@
-<h1>Sign Up!</h1>
+<h1>Edit profile</h1>
 <br />
 
-<form action="/profile/{{profile.username}}" method="POST">
+<form action="/profile/edit" method="POST">
 
   <label for="username">Username: </label>
-  <input type="text" name="username" value="{{profile.username}}" />
+  <input type="text" name="username" value="{{profileEdit.username}}" />
 
   <br /><br />
 
   <label for="email">Email: </label>
-  <input type="email" name="email" value="{{profile.username}}" />
+  <input type="email" name="email" value="{{profileEdit.email}}" />
 
   <br /><br />
 
-  <label for="password">Password: </label>
+  {{!-- <label for="password">Password: </label>
   <input type="password" name="password" value="{{profile.username}}" />
 
-  <br /><br />
+  <br /><br /> --}}
 
   <button>Edit</button>
 
-</form>
+{{!-- </form>
 <form action="/profile/{{profile_id}}/delete">
   <button>delete</button>
-</form>
+</form> --}}

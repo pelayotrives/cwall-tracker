@@ -1,16 +1,20 @@
 const User = require("../models/User.model.js");
 const router = require("express").Router();
 
+//GET : (/profile) => Renderiza la vista de los datos de perfil del usuario
 router.get("/", (req, res, next) => {
-  res.render("profile/profile.hbs")
+  const { user } = req.session;
+  res.render("profile/profile.hbs", {
+    user
+  })
 })
 
-//GET: (/profile)=> Renderiza los datos de perfil del usuario
+//GET: (/profile/edit)=> Renderiza la vista para poder editar los detalles del usuario.
 router.get("/edit", async (req, res, next) => {
   const { user } = req.session;
   console.log(user);
   try {
-    let profile = await User.findById(user);
+    let profile = await User.findById(user._id);
     res.render("profile/profile-form.hbs", {
       user,
     });
@@ -24,12 +28,12 @@ router.post("/edit", async (req, res, next) => {
   const { user } = req.session;
   const { username, email } = req.body;
   try {
-    let profile = await User.findByIdAndUpdate(user, {
+    let profileEdited = await User.findByIdAndUpdate(user._id, {
       username,
       email,
     });
     res.render("profile/profile.hbs", {
-      profile,
+      profileEdited,
     });
   } catch (err) {
     next(err);
@@ -40,7 +44,7 @@ router.post("/edit", async (req, res, next) => {
 router.post("/delete", async (req, res, next) => {
   const { user } = req.session;
   try {
-    let profile = await User.findByIdAndDelete(id);
+    let profileDelete = await User.findByIdAndDelete(user._id);
     res.redirect("/auth/signup");
   } catch (err) {
     next(err);

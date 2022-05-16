@@ -1,1 +1,12 @@
 <h1>This is your profile!</h1>
+<br>
+<p>Username: <strong>{{user.username}}</strong> </p>
+<p>Email: <strong>{{user.email}}</strong> </p>
+<br>
+
+<a href="/profile/edit"><button>Edit profile</button></a>
+
+</form>
+<form action="/profile/{{user._id}}/delete">
+  <button>Delete</button>
+</form>
