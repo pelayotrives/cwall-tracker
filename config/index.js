@@ -50,7 +50,7 @@ module.exports = (app) => {
       secret: process.env.SESSION_SECRET,
       store: MongoStore.create({
         // Donde queremos guardar las sesiones en la DB
-        mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/basic-auth",
+        mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/cwall-tracker", //! Importante cambiar aquí el nombre de la BBDD.
       }),
       resave: false, // Solo se guardan sesiones de usuario que hayan sido validades.
       saveUninitialized: false, // No se guarda la sesión si no se modifica.

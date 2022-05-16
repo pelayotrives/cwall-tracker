@@ -1,12 +1,21 @@
 const User = require("../models/User.model.js");
 const router = require("express").Router();
 
-//GET : (/profile) => Renderiza la vista de los datos de perfil del usuario
-router.get("/", (req, res, next) => {
+//GET : (/profile) => Renderiza la vista de los datos de perfil del usuario.
+//! Con esta ruta, el nombre actualizado saldrá en pantalla también.
+
+router.get("/", async (req, res, next) => {
   const { user } = req.session;
-  res.render("profile/profile.hbs", {
-    user
-  })
+  const { _id } = req.session.user
+  try {
+    let profile = await User.findById(_id)
+    res.render("profile/profile.hbs", {
+      profile
+    })
+  }
+  catch (err) {
+    next(err);
+  }
 })
 
 //GET: (/profile/edit)=> Renderiza la vista para poder editar los detalles del usuario.
@@ -16,7 +25,7 @@ router.get("/edit", async (req, res, next) => {
   try {
     let profile = await User.findById(user._id);
     res.render("profile/profile-form.hbs", {
-      user,
+      profile
     });
   } catch (err) {
     next(err);
@@ -29,18 +38,18 @@ router.post("/edit", async (req, res, next) => {
   const { username, email } = req.body;
   try {
 
-    let profileEdited = await User.findByIdAndUpdate(user._id, {
+    await User.findByIdAndUpdate(user._id, {
       username,
       email,
     },
 
-    {
-      new: true // Con esto creamos un nuevo objeto actualizado.
-    });
+    // {
+    //   new: true //! Con esto creamos un nuevo objeto actualizado. Siempre hace falta cuando se usa res.render(), cuando se hace res.redirect() no hace falta.
+    // }
+    
+    );
 
-    res.redirect("/profile", {
-      profileEdited
-    });
+    res.redirect("/profile");
 
   } catch (err) {
     next(err);
