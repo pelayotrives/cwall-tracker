@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const bcryptjs = require("bcryptjs");
+const async = require("hbs/lib/async");
 const User = require("../models/User.model.js");
 
 // TODO ----------> Sign Up
@@ -34,7 +35,8 @@ router.post("/signup", async (req, res, next) => {
 
   if (passwordRegex.test(password) === false) {
     res.render("auth/signup", {
-      errorMessage: "Your password should contain at least 8 chars with one number and one lowercase letter!"
+      errorMessage:
+        "Your password should contain at least 8 chars with one number and one lowercase letter!",
     });
     //? Este return vacío indica que hasta aquí llega mi ruta. Se traduce a: "Si llega a haber un problema, detén la ejecución de la función anónima".
     return;
@@ -105,7 +107,6 @@ router.post("/login", async (req, res, next) => {
   }
 
   try {
-
     //! 2.) Validar que el usuario existe en la BBDD
 
     const foundUser = await User.findOne({ username: username });
@@ -138,23 +139,31 @@ router.post("/login", async (req, res, next) => {
     console.log(foundUser);
     // Variable global de HBS para mostrar u ocultar elementos (por ejemplo, algunas zonas del NAV dependiendo del rol del usuario).
     req.app.locals.userIsActive = true;
-
-  }
-  
-  catch (err) {
+  } catch (err) {
     next(err);
   }
 
   //* Esto será lo último que suceda (después del catch). Una vez se crea el usuario, le redirigimos para que haga login.
   //! Cuando todo esté hecho en el login, redireccionaremos a profile aquí debajo.
-  res.redirect("/profile")
-
+  res.redirect("/profile");
 });
 
 //? ---------------------------------------------------------------------------------
 
 // TODO ----------> Log In
 
-// * GET "/auth/logout" => Cerrar sesión del usuario.
+// * POST "/auth/logout" => Cerrar sesión del usuario.
+
+router.post("/logout", async (req, res, next) => {
+  try {
+    // Cierra la req.session del usuario logueado
+    await req.session.destroy();
+    //Pasa la variable local al falso para que podamos visualizar lo botones del nav que necesitamos
+    req.app.locals.userIsActive = false;
+    res.redirect("/");
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;

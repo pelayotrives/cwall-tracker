@@ -1,6 +1,8 @@
 <h1>Coin details</h1>
 
-<p>{{coinDetail.name}}</p>
+{{#each Detail}}
+  <img src="{{this.image}}" alt="" />
+  <h2>{{this.name}}</h2>
+  <h3> {{this.symbol}}</h3>
 
-
-
+{{/each}}
