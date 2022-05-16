@@ -28,13 +28,20 @@ router.post("/edit", async (req, res, next) => {
   const { user } = req.session;
   const { username, email } = req.body;
   try {
+
     let profileEdited = await User.findByIdAndUpdate(user._id, {
       username,
       email,
+    },
+
+    {
+      new: true // Con esto creamos un nuevo objeto actualizado.
     });
-    res.render("profile/profile.hbs", {
-      profileEdited,
+
+    res.redirect("/profile", {
+      profileEdited
     });
+
   } catch (err) {
     next(err);
   }
