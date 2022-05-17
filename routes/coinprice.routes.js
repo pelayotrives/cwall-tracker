@@ -50,7 +50,7 @@ router.get("/:id", async (req, res, next) => {
       vs_currency: "usd",
       ids: [`${id}`],
     });
-
+    console.log(coinDetail)
     res.render("coins/coins-details.hbs", {
       Detail: coinDetail.data,
     });
