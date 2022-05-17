@@ -7,7 +7,7 @@ const CryptoModel = require("../models/Crypto.model.js");
 router.get("/insertcoin", async (req, res, next) => {
   try {
     let marketCoin = await CoinGeckoClient.coins.markets();
-    res.render("wallet/wallet.hbs", {
+    res.render("wallet/wallet-insertcoin.hbs", {
       walletData: marketCoin.data,
     });
   } catch (err) {
@@ -28,12 +28,15 @@ router.post("/insertcoin", async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+  res.redirect("/wallet/walletlist")
 });
 
-router.get("/editwallet", async (req, res, next) => {
+router.get("/walletlist", async (req, res, next) => {
   const { _id } = req.session.user;
+  console.log(_id)
   try {
-    let walletList = CryptoModel.findById(_id);
+    let walletList = await CryptoModel.find({userID:_id})
+    // console.log(walletList)
     res.render("wallet/wallet-list.hbs", {
       walletList,
     });

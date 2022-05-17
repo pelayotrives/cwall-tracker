@@ -1,4 +1,7 @@
 <h1>Your Coin List</h1>
 {{#each walletList}}
   <li><a href="">{{this.cryptoName}}</a></li>
-{{/each}}
+  {{this.purchasePrice}}
+  {{this.amount}}
+
+  {{/each}}
