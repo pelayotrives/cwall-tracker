@@ -30,4 +30,16 @@ router.post("/insertcoin", async (req, res, next) => {
   }
 });
 
+router.get("/editwallet", async (req, res, next) => {
+  const { _id } = req.session.user;
+  try {
+    let walletList = CryptoModel.findById(_id);
+    res.render("wallet/wallet-list.hbs", {
+      walletList,
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;

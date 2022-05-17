@@ -4,10 +4,9 @@
 
 <form action="">
   <label for="search">Search Coin</label>
-  <input type="text" name="search">
+  <input type="text" name="search" />
   <button>Search</button>
 </form>
-
 
 <table id="priceTable">
 
@@ -25,42 +24,40 @@
   <tbody>
 
     {{#each coinList}}
-      
 
-        <tr>
+      <tr>
 
-          <td style="width:185px; height:30px;">
-            <img src="{{this.image}}" alt="Coin image" width="20px" />
-          </td>
+        <td style="width:185px; height:30px;">
+          <img src="{{this.image}}" alt="Coin image" width="20px" />
+        </td>
 
-          <td style="width:185px; height:30px;">
-            <a href="/coinprice/{{this.id}}">
-              {{this.name}}
-            </a>
-          </td>
+        <td style="width:185px; height:30px;">
+          <a href="/coinprice/{{this.id}}">
+            {{this.name}}
+          </a>
+        </td>
 
-          <td style="width:185px; height:30px;">
-            {{this.symbol}}
-          </td>
+        <td style="width:185px; height:30px;">
+          {{this.symbol}}
+        </td>
 
-          <td style="width:185px; height:30px;" step="0.1">
-            {{this.current_price}}
-            <span>$</span>
-          </td>
+        <td style="width:185px; height:30px;" step="0.1">
+          {{this.current_price}}
+          <span>$</span>
+        </td>
 
-          <td style="width:185px; height:30px;">
-            {{this.price_change_percentage_24h}}
+        <td style="width:185px; height:30px;">
+          {{this.price_change_percentage_24h}}
 
-          </td>
+        </td>
 
-          <td style="width:185px; height:30px;">
-            {{this.market_cap_rank}}
+        <td style="width:185px; height:30px;">
+          {{this.market_cap_rank}}
 
-          </td>
+        </td>
 
-        </tr>
+      </tr>
 
-      
     {{/each}}
 
   </tbody>

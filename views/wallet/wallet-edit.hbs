@@ -1,0 +1,30 @@
+<h1>Modify your wallet</h1>
+<br /><br />
+
+<form action="/wallet" method="POST">
+
+  {{! Nombres de todas las monedas }}
+  <select name="cryptoName" id="select-currency">
+    {{#each walletData}}
+      <option value="{{this.id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+  <br /><br />
+
+  {{! Precio de Compara }}
+  <label for="purchasePrice">Purchase price : </label>
+  <input type="number" value="" name="purchasePrice" />
+  <br /><br />
+
+  {{! Cantidad a insertar por el usuario de la moneda seleccionada }}
+  <label for="amount">Quantity: </label>
+  <input type="number" value="" name="amount" />
+  <br /><br />
+
+  {{! Valor de la cantidad que tiene el usuario de dicha moneda }}
+  <span></span>
+  <br /><br />
+
+  <button>Add</button>
+
+</form>
