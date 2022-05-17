@@ -53,4 +53,36 @@ router.get("/walletlist", async (req, res, next) => {
   }
 });
 
+//! ---------- RUTA DETALLES & EDITAR LAS POSICIONES EN CARTERA (WALLET)
+
+// GET "/wallet/:id" => Renderizar la vista en detalle de cada cripto
+router.get("/:_id", async (req, res, next) => {
+  const { _id } = req.params;
+
+  try {
+    let walletCoin = await CryptoModel.findByIdAndUpdate(_id);
+    res.render("wallet/wallet-edit.hbs", {
+      walletCoin,
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.post("/:_id", async (req, res, next) => {
+  const { _id } = req.params;
+  const { amount, purchasePrice } = req.body;
+  try {
+    await CryptoModel.findByIdAndUpdate(_id, {
+      amount,
+      purchasePrice
+
+    });
+
+    res.redirect("/wallet/walletlist");
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;

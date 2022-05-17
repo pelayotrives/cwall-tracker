@@ -12,16 +12,11 @@ router.get("/", async (req, res, next) => {
 
     if (search === undefined) {
       res.render("coins/coins-prices.hbs", {
-      coinList: marketCoin.data,
-    }); 
-    
+        coinList: marketCoin.data,
+      });
+
       return;
-
     }
-
-
-
-
 
     let searching = marketCoin.data;
 
@@ -30,12 +25,11 @@ router.get("/", async (req, res, next) => {
         search.toUpperCase() === eachCoin.name.toUpperCase() ||
         search.toUpperCase() === eachCoin.symbol.toUpperCase()
       ) {
-        return eachCoin
-        
+        return eachCoin;
       }
     });
     res.redirect(`/coinprice/${searchResult.id}`);
-    console.log(searchResult)
+    console.log(searchResult);
   } catch (err) {
     next(err);
   }
@@ -50,7 +44,7 @@ router.get("/:id", async (req, res, next) => {
       vs_currency: "usd",
       ids: [`${id}`],
     });
-    console.log(coinDetail)
+    console.log(coinDetail);
     res.render("coins/coins-details.hbs", {
       Detail: coinDetail.data,
     });
@@ -58,23 +52,5 @@ router.get("/:id", async (req, res, next) => {
     next(err);
   }
 });
-
-// GET para el buscador
-// router.get("/", async (req, res, next) => {
-//   const { search } = req.query;
-//   console.log(req.query.search);
-//   try {
-//     let marketCoin = await CoinGeckoClient.coins.markets();
-//     let searching = marketCoin.data;
-
-//     let searchCoin = searching.find((eachCoin) => {
-//       if (search.toUpperCase() === eachCoin.name.toUpperCase()) {
-//         res.redirect(`/coinprice/${eachCoin.id}`);
-//       }
-//     });
-//   } catch (err) {
-//     next(err);
-//   }
-// });
 
 module.exports = router;
