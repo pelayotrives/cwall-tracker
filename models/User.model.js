@@ -19,6 +19,9 @@ const userSchema = new Schema(
     image: {
       type: String,
     },
+    vip: {
+      type: Boolean
+    }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
