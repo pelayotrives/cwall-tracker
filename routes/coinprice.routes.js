@@ -15,14 +15,17 @@ router.get("/", async (req, res, next) => {
 
     let searching = marketCoin.data;
 
-    searching.find((eachCoin) => {
+    let searchResult = searching.find((eachCoin) => {
       if (
         search.toUpperCase() === eachCoin.name.toUpperCase() ||
         search.toUpperCase() === eachCoin.symbol.toUpperCase()
       ) {
-        res.redirect(`/coinprice/${eachCoin.id}`);
+        return eachCoin
+        
       }
     });
+    res.redirect(`/coinprice/${searchResult.id}`);
+    console.log(searchResult)
   } catch (err) {
     next(err);
   }

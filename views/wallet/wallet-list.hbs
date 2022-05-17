@@ -1,7 +1,37 @@
 <h1>Your Coin List</h1>
-{{#each walletList}}
-  <li><a href="">{{this.cryptoName}}</a></li>
-  {{this.purchasePrice}}
-  {{this.amount}}
 
-  {{/each}}
+<table>
+  <thead>
+    <th style="width:185px; height:35px;">Logo</th>
+    <th style="width:185px; height:35px;">Name</th>    
+    <th style="width:185px; height:35px;">Purchase Price ($)</th>
+    <th style="width:205px; height:35px;">Amount</th>
+  </thead>
+  <tbody>
+    {{#each walletList}}
+
+      <tr>
+        <td style="width:185px; height:30px;">
+          <img src="{{this.image}}" alt="Coin image" width="20px" />
+        </td>
+        <td style="width:185px; height:30px;">
+          <a href="/coinprice/{{this.id}}">
+            {{this.cryptoName}}
+          </a>
+        </td>
+
+        <td style="width:185px; height:30px;" step="0.1">
+          {{this.purchasePrice}}
+          <span>$</span>
+        </td>
+        <td style="width:185px; height:30px;">
+          {{this.amount}}
+        </td>
+
+      </tr>
+
+    {{/each}}
+
+  </tbody>
+
+</table>
