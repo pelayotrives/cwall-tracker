@@ -20,7 +20,8 @@ const userSchema = new Schema(
       type: String,
     },
     vip: {
-      type: Boolean
+      type: Boolean,
+      default: false,
     }
   },
   {

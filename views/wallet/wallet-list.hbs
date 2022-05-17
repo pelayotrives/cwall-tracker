@@ -8,12 +8,15 @@
     <th style="width:205px; height:35px;">Amount</th>
   </thead>
   <tbody>
+    <tr>
+
+    <td style="width:185px; height:30px;">
+          <img src="{{coinDetail.image}}" alt="Coin image" width="20px" />
+        </td>
     {{#each walletList}}
 
-      <tr>
-        <td style="width:185px; height:30px;">
-          <img src="{{this.image}}" alt="Coin image" width="20px" />
-        </td>
+      
+        
         <td style="width:185px; height:30px;">
           <a href="/coinprice/{{this.id}}">
             {{this.cryptoName}}
