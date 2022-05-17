@@ -16,10 +16,17 @@ router.get("/insertcoin", async (req, res, next) => {
 });
 
 router.post("/insertcoin", async (req, res, next) => {
-  const { cryptoName, purchasePrice, amount, userID } = req.body;
+  const { cryptoImg, cryptoName, purchasePrice, amount, userID } = req.body;
   const { _id } = req.session.user;
+
+  let coinDetail = await CoinGeckoClient.coins.markets({
+    vs_currency: "usd",
+    ids: [cryptoName],
+  });
+  console.log(coinDetail.data[0].image);
   try {
     CryptoModel.create({
+      cryptoImg: coinDetail.data[0].image,
       cryptoName,
       purchasePrice,
       amount,
@@ -28,30 +35,17 @@ router.post("/insertcoin", async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-  res.redirect("/wallet/walletlist")
+  res.redirect("/wallet/walletlist");
 });
 
 router.get("/walletlist", async (req, res, next) => {
   const { _id } = req.session.user;
-  console.log(_id)
-  try {
-    let walletList = await CryptoModel.find({userID:_id})
-    let walletName = await CryptoModel.find().select("cryptoName")  
-    let loopWallet = walletName.forEach((element) => {
-      return element.cryptoName
-    })
-    let coinDetail = await CoinGeckoClient.coins.markets({
-      vs_currency: "usd",
-      ids: [`${walletName.cryptoName}`],
-    });
 
-    console.log(loopWallet)
-  
-    
-    // console.log(walletName)
+  try {
+    let walletList = await CryptoModel.find({ userID: _id });
+
     res.render("wallet/wallet-list.hbs", {
       walletList,
-      coinImg: coinDetail.data,
     });
   } catch (err) {
     next(err);
