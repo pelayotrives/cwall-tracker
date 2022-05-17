@@ -4,8 +4,9 @@
   <thead>
     <th style="width:185px; height:35px;">Logo</th>
     <th style="width:185px; height:35px;">Name</th>
-    <th style="width:185px; height:35px;">Purchase Price ($)</th>
-    <th style="width:205px; height:35px;">Amount</th>
+    <th style="width:185px; height:35px;">Amount</th>
+    <th style="width:205px; height:35px;">Profit</th>
+    
   </thead>
   <tbody>
 
@@ -20,14 +21,14 @@
             {{this.cryptoName}}
           </a>
         </td>
-
-        <td style="width:185px; height:30px;" step="0.1">
-          {{this.purchasePrice}}
-          <span>$</span>
-        </td>
         <td style="width:185px; height:30px;">
           {{this.amount}}
         </td>
+          </td>
+        <td style="width:185px; height:30px;">
+          {{this.profit}}
+        </td>
+       
       </tr>
     {{/each}}
 

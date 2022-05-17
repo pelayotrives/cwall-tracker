@@ -14,7 +14,7 @@ router.get("/insertcoin", async (req, res, next) => {
     next(err);
   }
 });
-
+//*
 router.post("/insertcoin", async (req, res, next) => {
   const { cryptoImg, cryptoName, purchasePrice, amount, userID } = req.body;
   const { _id } = req.session.user;
@@ -31,6 +31,7 @@ router.post("/insertcoin", async (req, res, next) => {
       purchasePrice,
       amount,
       userID: _id,
+      purchaseValue: purchasePrice * amount,
     });
   } catch (err) {
     next(err);
