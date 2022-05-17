@@ -1,10 +1,11 @@
 const User = require("../models/User.model.js");
 const router = require("express").Router();
+const {isVip, isLoggedIn} = require("../middlewares/auth.middlewares.js");
 
 //GET : (/profile) => Renderiza la vista de los datos de perfil del usuario.
 //! Con esta ruta, el nombre actualizado saldrá en pantalla también.
 
-router.get("/", async (req, res, next) => {
+router.get("/", isLoggedIn, async (req, res, next) => {
   const { user } = req.session;
   const { _id } = req.session.user
   try {
