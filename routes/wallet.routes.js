@@ -67,13 +67,19 @@ router.get("/walletlist", async (req, res, next) => {
 //! ---------- RUTA DETALLES & EDITAR LAS POSICIONES EN CARTERA (WALLET)
 
 // GET "/wallet/:id" => Renderizar la vista en detalle de cada cripto
-router.get("/:_id", async (req, res, next) => {
-  const { _id } = req.params;
+router.get("/:id", async (req, res, next) => {
+  const { id } = req.params;
 
   try {
-    let walletCoin = await CryptoModel.findByIdAndUpdate(_id);
+    let walletList = await CoinGeckoClient.coins.markets({
+      vs_currency: "usd",
+      ids: [`${id}`],
+    });
+
+
     res.render("wallet/wallet-edit.hbs", {
-      walletCoin,
+      walletList,
+      nowPrice: walletList.data
     });
   } catch (err) {
     next(err);

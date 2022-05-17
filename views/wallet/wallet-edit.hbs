@@ -1,22 +1,39 @@
 <h1>Details & Modify your Coins</h1>
 <br /><br />
 {{!-- Action tiene que ser el mismo que la ruta post, por eso hemos puesto el ID dinámico  --}}
-<form action="/wallet/{{walletCoin._id}}" method="POST">
+<form action="/wallet/{{walletList._id}}" method="POST">
 
   <label for="amount">Amount</label>
-  <input type="number" name="amount" value="{{walletCoin.amount}}">
+  <input type="number" name="amount" value="{{walletList.amount}}">
 
   <br><br>
 
   <label for="purchasePrice">Purchase Price $</label>
-  <input type="number" name="purchasePrice" value="{{walletCoin.purchasePrice}}">
+  <input type="number" name="purchasePrice" value="{{walletList.purchasePrice}}">
 
   <br><br>
 
   <button>Editar</button>
 
-  <img src="{{walletCoin.image}}" alt="logo">
-  <p>{{walletCoin.currentPrice}}</p>
+  <br><br>
+
+   <p>{{walletList.cryptoName}}</p>
+
+  <br><br>
+
+  <p>{{walletList.currentPrice}}</p>
+
+  <br><br>
+
+  <img src="{{walletList.cryptoImg}}" alt="logo">
+
+   <br><br>
+
+   <p>{{walletList.purchaseValue}}</p>
+
+
+
+
   {{!-- <table>
 
     <thead>
