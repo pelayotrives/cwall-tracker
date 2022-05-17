@@ -137,11 +137,12 @@ router.post("/login", async (req, res, next) => {
     // La traducción es: abrimos una sesión del usuario gracias a esto y la siguiente línea.
     req.session.user = foundUser;
     console.log(foundUser);
-    // Variable global de HBS para mostrar u ocultar elementos (por ejemplo, algunas zonas del NAV dependiendo del rol del usuario).
-    req.app.locals.userIsActive = true;
+    // Variable global de HBS para mostrar u ocultar elementos (por ejemplo, algunas zonas del NAV dependiendo del rol del usuario). True por defecto, la asignamos cuando
+    req.app.locals.userIsActive = true; 
 
-    if (User.vip === true) {
-      req.app.locals.userIsVip = true;
+    // Al hacer login únicamente. Si el usuario tiene el valor de VIP como true...
+    if (foundUser.vip === true) {
+      req.app.locals.userIsVip = true; // Asignamos a esta variable global el valor de true,
     }
     
   } catch (err) {
@@ -164,7 +165,8 @@ router.post("/logout", async (req, res, next) => {
     // Cierra la req.session del usuario logueado
     await req.session.destroy();
     //Pasa la variable local al falso para que podamos visualizar lo botones del nav que necesitamos
-    req.app.locals.userIsActive = false;
+    req.app.locals.userIsActive = false; // Cuando deslogueamos, asignamos a false.
+    req.app.locals.userIsVip = false; // Cuando deslogueamos, asignamos a false.
     res.redirect("/");
   } catch (err) {
     next(err);
