@@ -139,6 +139,11 @@ router.post("/login", async (req, res, next) => {
     console.log(foundUser);
     // Variable global de HBS para mostrar u ocultar elementos (por ejemplo, algunas zonas del NAV dependiendo del rol del usuario).
     req.app.locals.userIsActive = true;
+
+    if (User.vip === true) {
+      req.app.locals.userIsVip = true;
+    }
+    
   } catch (err) {
     next(err);
   }
