@@ -36,12 +36,17 @@ router.get("/walletlist", async (req, res, next) => {
   console.log(_id)
   try {
     let walletList = await CryptoModel.find({userID:_id})
-    let walletName = await CryptoModel.find({userID:_id}).select("cryptoName")
-    let geckoClient = await CoinGeckoClient.coins.markets()
+    let walletName = await CryptoModel.find({userID:_id}).select("cryptoName")  
+    console.log(walletName)
+    let coinDetail = await CoinGeckoClient.coins.markets({
+      vs_currency: "usd",
+      ids: [`${walletName.cryptoName}`],
+    });
     
-    // console.log(walletList)
+    // console.log(walletName)
     res.render("wallet/wallet-list.hbs", {
       walletList,
+      coinDetail,
     });
   } catch (err) {
     next(err);

@@ -9,9 +9,19 @@ router.get("/", async (req, res, next) => {
 
   try {
     let marketCoin = await CoinGeckoClient.coins.markets();
-    res.render("coins/coins-prices.hbs", {
+
+    if (search === undefined) {
+      res.render("coins/coins-prices.hbs", {
       coinList: marketCoin.data,
-    });
+    }); 
+    
+      return;
+
+    }
+
+
+
+
 
     let searching = marketCoin.data;
 
