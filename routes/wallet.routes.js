@@ -23,15 +23,16 @@ router.post("/insertcoin", async (req, res, next) => {
     vs_currency: "usd",
     ids: [cryptoName],
   });
-  console.log(coinDetail.data[0].image);
+  console.log(coinDetail);
   try {
     CryptoModel.create({
       cryptoImg: coinDetail.data[0].image,
       cryptoName,
       purchasePrice,
       amount,
-      userID: _id,
+      currentPrice: coinDetail.data[0].current_price,
       purchaseValue: purchasePrice * amount,
+      userID: _id,
     });
   } catch (err) {
     next(err);
@@ -44,9 +45,19 @@ router.get("/walletlist", async (req, res, next) => {
 
   try {
     let walletList = await CryptoModel.find({ userID: _id });
+    console.log(walletList);
+    let nameArr = [];
+    let walletNames = walletList.forEach((eachElement) => {
+      nameArr.push(eachElement.cryptoName);
+    });
+    let coinDetail = await CoinGeckoClient.coins.markets({
+      vs_currency: "usd",
+      ids: nameArr,
+    });
 
     res.render("wallet/wallet-list.hbs", {
       walletList,
+      coinDetailPrice: coinDetail.data,
     });
   } catch (err) {
     next(err);

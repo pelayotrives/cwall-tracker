@@ -17,7 +17,7 @@
         </td>
 
         <td style="width:185px; height:30px;">
-          <a href="/coinprice/{{this.id}}">
+          <a href="/wallet/{{this._id}}">
             {{this.cryptoName}}
           </a>
         </td>
@@ -35,3 +35,15 @@
   </tbody>
 
 </table>
+
+        {{#each coinDetailPrice}}
+        <li> {{this.current_price}} </li>
+
+      
+           {{/each}}
+           
+      
+    
+     
+  
+
