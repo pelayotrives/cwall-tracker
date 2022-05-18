@@ -46,7 +46,7 @@ router.get("/walletlist", async (req, res, next) => {
   try {
     let walletList = await CryptoModel.find({ userID: _id });
 
-    let nameArr = [];
+    let nameArr = []; // array de nombres de las monedas de nuestro usuario
     let walletNames = walletList.forEach((eachElement) => {
       nameArr.push(eachElement.cryptoName);
     });
@@ -57,29 +57,31 @@ router.get("/walletlist", async (req, res, next) => {
     let clearAllData = coinDetail.data;
 
     let data = await CoinGeckoClient.simple.price({
+      //Llamada de la API solo precios
       ids: nameArr,
       vs_currencies: ["usd"],
     });
     let dataClear = data.data;
 
-    // let priceArr = [];
-    // console.log(walletList);
-    // let valuesPrices = clearAllData.forEach((eachElement) => {
-    //   let allValues = Object.values(eachElement);
-    //   priceArr.push(allValues[4]);
-    // });
-
-    // priceArr.forEach((eachElement) => {
-    //   console.log(eachElement);
-    // });
+    walletList.forEach((eachElement) => {
+      eachElement.profit = //! Itera por cada propiedad del modelo
+        //Funcionalidad de conseguir el profit
+        dataClear[eachElement.cryptoName].usd * eachElement.amount -
+        eachElement.amount * eachElement.purchasePrice;
+    });
 
     walletList.forEach((eachElement) => {
-      console.log(dataClear[eachElement.cryptoName].usd);
+      eachElement.profitPercentage =
+        (dataClear[eachElement.cryptoName].usd * 100) /
+          eachElement.purchasePrice -
+        100;
+    });
+    walletList.forEach((eachElement) => {
+      eachElement.profitPercentage = eachElement.profitPercentage.toFixed(2);
     });
 
     res.render("wallet/wallet-list.hbs", {
       walletList,
-      coinDetailPrice: coinDetail.data,
     });
   } catch (err) {
     next(err);
@@ -128,14 +130,15 @@ router.post("/:_id", async (req, res, next) => {
 //! DELETE -------------------------
 
 //POST: (/wallet/:id/delete)=> elimina los datos del usuario
-// router.post("/:id/delete", async (req, res, next) => {
-//   const { id } = req.params;
-//   try {
-//     await CryptoModel.findByIdAndDelete(id);
-//     res.redirect("/wallet/walletlist");
-//   } catch (err) {
-//     next(err);
-//   }
-// });
+router.post("/:id/delete", async (req, res, next) => {
+  const { id } = req.params;
+  console.log();
+  try {
+    await CryptoModel.findByIdAndDelete(id);
+    res.redirect("/wallet/walletlist");
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;

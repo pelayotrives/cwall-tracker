@@ -32,6 +32,12 @@ const cryptoSchema = new Schema({
     // purchaseValue - currentPrice
     type: Number,
   },
+  totalResult: {
+    type: Number,
+  },
+  profitPercentage: {
+    type: Number,
+  },
   userID: {
     // Relación con el usuario propietario de la Wallet
     type: Schema.Types.ObjectId,

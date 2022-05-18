@@ -5,7 +5,8 @@
     <th style="width:185px; height:35px;">Logo</th>
     <th style="width:185px; height:35px;">Name</th>
     <th style="width:185px; height:35px;">Amount</th>
-    <th style="width:205px; height:35px;">Profit</th>
+    <th style="width:205px; height:35px;">Profit ($)</th>
+    <th style="width:205px; height:35px;">Profit (%)</th>
     
   </thead>
   <tbody>
@@ -28,20 +29,27 @@
         <td style="width:185px; height:30px;">
           {{this.profit}}
         </td>
+        <td style="width:185px; height:30px;">
+          {{this.profitPercentage}}
+        </td>
+       
        
       </tr>
+    {{/each}}
+
+    {{#each profit}}
+  <li>{{this}}</li>  
     {{/each}}
 
   </tbody>
 
 </table>
 
-        {{#each coinDetailPrice}}
-        <li> {{this.current_price}} </li>
+        
+   
 
       
-           {{/each}}
-           
+    
       
     
      

@@ -21,11 +21,7 @@
 
   <br /><br />
 
-  {{!-- Botón DELETE --}}
-  
-  <form action="/wallet/{{walletList.id}}/delete" method="POST">
-    <button class="btn btn-danger">Delete</button>
-  </form>
+  {{! Botón DELETE }}
 
   <br /><br />
 
@@ -67,4 +63,7 @@
 
   </table> }}
 
+</form>
+<form action="/wallet/{{walletList._id}}/delete" method="POST">
+  <button class="btn btn-danger">Delete</button>
 </form>
