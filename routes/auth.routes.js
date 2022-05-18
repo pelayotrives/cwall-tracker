@@ -138,13 +138,13 @@ router.post("/login", async (req, res, next) => {
     req.session.user = foundUser;
     console.log(foundUser);
     // Variable global de HBS para mostrar u ocultar elementos (por ejemplo, algunas zonas del NAV dependiendo del rol del usuario). True por defecto, la asignamos cuando
-    req.app.locals.userIsActive = true; 
+    req.app.locals.userIsActive = true;
+    req.app.locals.username = foundUser.username;
 
     // Al hacer login únicamente. Si el usuario tiene el valor de VIP como true...
     if (foundUser.vip === true) {
       req.app.locals.userIsVip = true; // Asignamos a esta variable global el valor de true,
     }
-    
   } catch (err) {
     next(err);
   }
