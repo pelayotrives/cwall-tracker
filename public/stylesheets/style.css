@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  font-family: 'Archivo', Helvetica, Arial, sans-serif;
   background-color: black;
   color: white;
   width: 100vw;
@@ -17,25 +21,70 @@ body {
 
 .nav-link {
   color: white;
-  margin: 20px 45px;
+  margin: 20px 35px;
   font-size: 14px;
   transition: all 500ms;
 }
 
 .nav-link:hover {
-  color: rgb(220, 255, 209);
+  color: #5e9baf;
   font-size: 17;
 }
 
-#main-title {
-  font-size: 88px;
+.index-content {
+  text-align: center;
 }
 
-#main-paragraph {
-
+#index-title {
+  font-family: 'Koulen';
+  font-size: 160px;
+  transition: all 1s;
 }
 
-/* #priceTable {
-  width: 100%;
-  border: 1px solid;
-} */
+#index-title:hover {
+  -webkit-text-stroke: 2px #fff;
+    font-size: 175px;
+  color: transparent;
+}
+
+#index-paragraph {
+  font-size: 30px;
+  letter-spacing: 3px;
+}
+
+#index-button-container {
+  width: 10%;
+  display: inline-block;
+  margin-top: 30px;
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 10px;
+  transition: all 500ms;
+}
+
+#index-button-container:hover {
+  border: 2px solid white;
+  background-color: white;
+}
+
+#index-button {
+  text-decoration: none;
+  letter-spacing: 1px;
+  padding: 15px;
+  color: white;
+  transition: all 500ms;
+}
+
+#index-button:hover {
+  color: black;
+}
+
+#myVideo {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0.5;
+}

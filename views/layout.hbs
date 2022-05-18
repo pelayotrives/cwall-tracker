@@ -18,51 +18,51 @@
 
     <nav class="navbar">
 
-    {{#if userIsActive}}
+      {{#if userIsActive}}
 
-      <ul class="nav nav-pills nav-fill">
-
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/profile">Profile</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/coinprice">Coins</a>
-        </li>
-
-        {{#if userIsVip}}
+        <ul class="nav nav-pills nav-fill">
 
           <li class="nav-item">
-            <a class="nav-link" href="/wallet/insertcoin">Insert Coin</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="/wallet/walletlist">My Wallet</a>
+            <a class="nav-link" href="/profile">Profile</a>
           </li>
 
-        {{/if}}
+          <li class="nav-item">
+            <a class="nav-link" href="/coinprice">Coins</a>
+          </li>
 
-      </ul>
+          {{#if userIsVip}}
 
-    {{else}}
+            <li class="nav-item">
+              <a class="nav-link" href="/wallet/insertcoin">Insert Coin</a>
+            </li>
 
-      <ul class="nav nav-pills nav-fill">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/auth/signup">Sign Up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/auth/login">Log In</a>
-        </li>
-      </ul>
+            <li class="nav-item">
+              <a class="nav-link" href="/wallet/walletlist">My Wallet</a>
+            </li>
 
-    {{/if}}
+          {{/if}}
+
+        </ul>
+
+      {{else}}
+
+        <ul class="nav nav-pills nav-fill">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/auth/signup">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/auth/login">Log In</a>
+          </li>
+        </ul>
+
+      {{/if}}
 
     </nav>
 
