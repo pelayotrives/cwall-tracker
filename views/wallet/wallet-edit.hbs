@@ -1,6 +1,30 @@
-<h1>Details & Modify your Coins</h1>
-<br /><br />
+<h1>Your Position Details</h1>
+<br /><br /> 
+
+  <br /><br />
+
+  <h2>{{walletList.cryptoName}}</h2>  
+
+  <br /><br />
+
+  <img src="{{walletList.cryptoImg}}" alt="logo" />
+
+  <br /><br />
+
+  <p>Purchase Price: {{walletList.purchaseValue}}</p>
+  {{#each nowPrice}}
+    <P>Current Price:{{this.current_price}} </P>
+  {{/each}}
+
+
 {{! Action tiene que ser el mismo que la ruta post, por eso hemos puesto el ID dinámico  }}
+
+<hr>
+
+<h1>Edit your position</h1>
+
+<br><br>
+
 <form action="/wallet/{{walletList._id}}" method="POST">
 
   <label for="amount">Amount: </label>
@@ -13,57 +37,12 @@
     type="number"
     name="purchasePrice"
     value="{{walletList.purchasePrice}}"
-  />
-
-  <br /><br />
+  /> 
+  <br>
 
   <button class="btn btn-success">Modify</button>
+  </form>
 
-  <br /><br />
-
-  {{! Botón DELETE }}
-
-  <br /><br />
-
-  <p>{{walletList.cryptoName}}</p>
-
-  <br /><br />
-
-  <p>{{walletList.currentPrice}}</p>
-
-  <br /><br />
-
-  <img src="{{walletList.cryptoImg}}" alt="logo" />
-
-  <br /><br />
-
-  <p>{{walletList.purchaseValue}}</p>
-  {{#each nowPrice}}
-    <P>Naw Price:{{this.current_price}} </P>
-  {{/each}}
-
-  {{! <table>
-
-    <thead>
-      
-    </thead>
-
-    
-    <tbody>
-      <tr>
-        <td>
-
-        </td>
-      </tr>
-            
-    </tbody>
-
-
-
-
-  </table> }}
-
-</form>
 <form action="/wallet/{{walletList._id}}/delete" method="POST">
   <button class="btn btn-danger">Delete</button>
 </form>

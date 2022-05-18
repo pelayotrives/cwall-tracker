@@ -63,6 +63,7 @@ router.get("/walletlist", async (req, res, next) => {
     });
     let dataClear = data.data;
 
+    //PROFIT
     walletList.forEach((eachElement) => {
       eachElement.profit = //! Itera por cada propiedad del modelo
         //Funcionalidad de conseguir el profit
@@ -70,14 +71,22 @@ router.get("/walletlist", async (req, res, next) => {
         eachElement.amount * eachElement.purchasePrice;
     });
 
+    //PROFIT TO FIXED
+    walletList.forEach((eachElement) => {
+      eachElement.profit = eachElement.profit.toFixed(2);
+    });
+
+    //PROFIT PERCENTAGE
     walletList.forEach((eachElement) => {
       eachElement.profitPercentage =
         (dataClear[eachElement.cryptoName].usd * 100) /
           eachElement.purchasePrice -
         100;
     });
+
+    //PROFIT PERCENTAGE TO FIXED
     walletList.forEach((eachElement) => {
-      eachElement.profitPercentage = eachElement.profitPercentage.toFixed(2);
+      eachElement.profitPercentage = eachElement.profitPercentage.toFixed(3);
     });
 
     res.render("wallet/wallet-list.hbs", {
