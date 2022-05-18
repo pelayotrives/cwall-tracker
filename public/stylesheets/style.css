@@ -1,14 +1,38 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: black;
+  color: white;
+  width: 100vw;
+  height: 100vh;
 }
 
-a {
-  color: #00b7ff;
+.navbar {
+  padding: 5px;
+  background-color: #1c1c1c;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
-h1 {
-  color: 15px;
+.nav-link {
+  color: white;
+  margin: 20px 45px;
+  font-size: 14px;
+  transition: all 500ms;
+}
+
+.nav-link:hover {
+  color: rgb(220, 255, 209);
+  font-size: 17;
+}
+
+#main-title {
+  font-size: 88px;
+}
+
+#main-paragraph {
+
 }
 
 /* #priceTable {
