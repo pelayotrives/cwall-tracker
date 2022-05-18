@@ -3,12 +3,12 @@
 {{! Action tiene que ser el mismo que la ruta post, por eso hemos puesto el ID dinámico  }}
 <form action="/wallet/{{walletList._id}}" method="POST">
 
-  <label for="amount">Amount</label>
+  <label for="amount">Amount: </label>
   <input type="number" name="amount" value="{{walletList.amount}}" />
 
   <br /><br />
 
-  <label for="purchasePrice">Purchase Price $</label>
+  <label for="purchasePrice">Purchase Price ($): </label>
   <input
     type="number"
     name="purchasePrice"
@@ -17,7 +17,15 @@
 
   <br /><br />
 
-  <button>Editar</button>
+  <button class="btn btn-success">Modify</button>
+
+  <br /><br />
+
+  {{!-- Botón DELETE --}}
+  
+  <form action="/wallet/{{walletList.id}}/delete" method="POST">
+    <button class="btn btn-danger">Delete</button>
+  </form>
 
   <br /><br />
 

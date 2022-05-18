@@ -125,4 +125,17 @@ router.post("/:_id", async (req, res, next) => {
   }
 });
 
+//! DELETE -------------------------
+
+//POST: (/wallet/:id/delete)=> elimina los datos del usuario
+// router.post("/:id/delete", async (req, res, next) => {
+//   const { id } = req.params;
+//   try {
+//     await CryptoModel.findByIdAndDelete(id);
+//     res.redirect("/wallet/walletlist");
+//   } catch (err) {
+//     next(err);
+//   }
+// });
+
 module.exports = router;
