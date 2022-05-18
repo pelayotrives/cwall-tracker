@@ -54,6 +54,7 @@ router.get("/walletlist", async (req, res, next) => {
       vs_currency: "usd",
       ids: nameArr,
     });
+    let clearAllData = coinDetail.data;
 
     let data = await CoinGeckoClient.simple.price({
       ids: nameArr,
@@ -61,11 +62,20 @@ router.get("/walletlist", async (req, res, next) => {
     });
     let dataClear = data.data;
 
-    console.log(dataClear.nameArr);
-
-    // let nowPrices = dataClear.forEach((eachElement) => {
-    //   eachElement.currentPrice;
+    // let priceArr = [];
+    // console.log(walletList);
+    // let valuesPrices = clearAllData.forEach((eachElement) => {
+    //   let allValues = Object.values(eachElement);
+    //   priceArr.push(allValues[4]);
     // });
+
+    // priceArr.forEach((eachElement) => {
+    //   console.log(eachElement);
+    // });
+
+    walletList.forEach((eachElement) => {
+      console.log(dataClear[eachElement.cryptoName].usd);
+    });
 
     res.render("wallet/wallet-list.hbs", {
       walletList,
