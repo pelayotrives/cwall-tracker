@@ -23,7 +23,7 @@ router.post("/insertcoin", async (req, res, next) => {
     vs_currency: "usd",
     ids: [cryptoName],
   });
-  console.log(coinDetail);
+
   try {
     CryptoModel.create({
       cryptoImg: coinDetail.data[0].image,
@@ -45,7 +45,7 @@ router.get("/walletlist", async (req, res, next) => {
 
   try {
     let walletList = await CryptoModel.find({ userID: _id });
-    console.log(walletList);
+
     let nameArr = [];
     let walletNames = walletList.forEach((eachElement) => {
       nameArr.push(eachElement.cryptoName);
@@ -54,6 +54,18 @@ router.get("/walletlist", async (req, res, next) => {
       vs_currency: "usd",
       ids: nameArr,
     });
+
+    let data = await CoinGeckoClient.simple.price({
+      ids: nameArr,
+      vs_currencies: ["usd"],
+    });
+    let dataClear = data.data;
+
+    console.log(dataClear.nameArr);
+
+    // let nowPrices = dataClear.forEach((eachElement) => {
+    //   eachElement.currentPrice;
+    // });
 
     res.render("wallet/wallet-list.hbs", {
       walletList,
@@ -69,17 +81,19 @@ router.get("/walletlist", async (req, res, next) => {
 // GET "/wallet/:id" => Renderizar la vista en detalle de cada cripto
 router.get("/:id", async (req, res, next) => {
   const { id } = req.params;
+  let name = id.cryptoName;
 
   try {
-    let walletList = await CoinGeckoClient.coins.markets({
+    let walletList = await CryptoModel.findById(id);
+    let walletDetailName = walletList.cryptoName;
+    let apiPrice = await CoinGeckoClient.coins.markets({
       vs_currency: "usd",
-      ids: [`${id}`],
+      ids: [walletDetailName],
     });
-
-
+    console.log(apiPrice);
     res.render("wallet/wallet-edit.hbs", {
       walletList,
-      nowPrice: walletList.data
+      nowPrice: apiPrice.data,
     });
   } catch (err) {
     next(err);
@@ -92,8 +106,7 @@ router.post("/:_id", async (req, res, next) => {
   try {
     await CryptoModel.findByIdAndUpdate(_id, {
       amount,
-      purchasePrice
-
+      purchasePrice,
     });
 
     res.redirect("/wallet/walletlist");
