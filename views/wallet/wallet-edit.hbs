@@ -1,13 +1,18 @@
+<div>
+  <h2>{{profile.username}}</h2>
+  <h2></h2>
+</div>
+
 <h1>Your Position Details</h1>
-<br /><br /> 
+<br /><br />
 
-  <br /><br />
+<br /><br />
 
-  <h2>{{walletList.cryptoName}}</h2>  
+<h2>{{walletList.cryptoName}}</h2>
 
-  <br /><br />
+<br /><br />
 
-  <img src="{{walletList.cryptoImg}}" alt="logo" />
+<img src="{{walletList.cryptoImg}}" alt="logo" />
 
   <br /><br />
 
@@ -17,14 +22,18 @@
     <P>Current Price: $ {{this.current_price}} </P>
   {{/each}}
 
+<p>Purchase Price: {{walletList.purchaseValue}}</p>
+{{#each nowPrice}}
+  <P>Current Price:{{this.current_price}} </P>
+{{/each}}
 
 {{! Action tiene que ser el mismo que la ruta post, por eso hemos puesto el ID dinámico  }}
 
-<hr>
+<hr />
 
 <h1>Edit your position</h1>
 
-<br><br>
+<br /><br />
 
 <form action="/wallet/{{walletList._id}}" method="POST">
 
@@ -43,7 +52,7 @@
   <br>
 
   <button class="btn btn-success">Modify</button>
-  </form>
+</form>
 
 <form action="/wallet/{{walletList._id}}/delete" method="POST">
   <button class="btn btn-danger">Delete</button>
