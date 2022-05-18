@@ -1,12 +1,15 @@
-<video autoplay loop muted plays-inline id="myVideo">
-  Cuando requerimos algo de Public, en la ruta, evitamos poner "Public", por eso aquí va "../videos/video.mp4" y no "../public/videos/video.mp4"
-  <source src="../videos/video.mp4" type="video/mp4" />
-</video>
+<div>
+  <video autoplay loop muted plays-inline id="myVideo">
+    {{!-- Cuando requerimos algo de Public, en la ruta, evitamos poner "Public", por eso aquí va "../videos/video.mp4" y no "../public/videos/video.mp4" --}}
+    <source src="../videos/video.mp4" type="video/mp4" />
+  </video>
 
-<div class="index-content">
-  <h1 id="index-title">C-Wall Tracker</h1>
-  <p id="index-paragraph">Welcome to the best cryptoexperience you will ever have!</p>
-  <div id="index-button-container">
+  <div class="index-content">
+    <h1 id="index-title">C-Wall Tracker</h1>
+    <p id="index-paragraph">Welcome to the best cryptoexperience you will ever
+      have!</p>
+    <div id="index-button-container">
       <a id="index-button" href="/auth/signup">Join the family</a>
+    </div>
   </div>
 </div>
