@@ -2,6 +2,7 @@ const router = require("express").Router();
 const CoinGecko = require("coingecko-api");
 const CoinGeckoClient = new CoinGecko();
 const CryptoModel = require("../models/Crypto.model.js");
+const User = require("../models/User.model.js");
 
 //* GET ("/wallet/wallet") => Renderiza la vista de "My Wallet" al usuario logueado
 router.get("/insertcoin", async (req, res, next) => {
@@ -89,8 +90,15 @@ router.get("/walletlist", async (req, res, next) => {
       eachElement.profitPercentage = eachElement.profitPercentage.toFixed(3);
     });
 
+    //YOUR PROFIT
+    let yourProfit = 0;
+    walletList.forEach((eachElement) => {
+      yourProfit += eachElement.profit;
+    });
+
     res.render("wallet/wallet-list.hbs", {
       walletList,
+      yourProfit,
     });
   } catch (err) {
     next(err);
@@ -103,6 +111,7 @@ router.get("/walletlist", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   const { id } = req.params;
   let name = id.cryptoName;
+  const { user } = req.session;
 
   try {
     let walletList = await CryptoModel.findById(id);
@@ -111,10 +120,15 @@ router.get("/:id", async (req, res, next) => {
       vs_currency: "usd",
       ids: [walletDetailName],
     });
-    console.log(apiPrice);
+
+    //Datos del usuario
+
+    let profile = await User.findById(user._id);
+
     res.render("wallet/wallet-edit.hbs", {
       walletList,
       nowPrice: apiPrice.data,
+      profile,
     });
   } catch (err) {
     next(err);
@@ -123,11 +137,12 @@ router.get("/:id", async (req, res, next) => {
 
 router.post("/:_id", async (req, res, next) => {
   const { _id } = req.params;
-  const { amount, purchasePrice } = req.body;
+  const { amount, purchasePrice, purchaseValue } = req.body;
   try {
     await CryptoModel.findByIdAndUpdate(_id, {
       amount,
       purchasePrice,
+      purchaseValue: purchasePrice * amount,
     });
 
     res.redirect("/wallet/walletlist");
