@@ -52,9 +52,16 @@
             <p class="nav-link" style="color: rgb(50,250,0,0.8) ;" href="#">Hi
               there,
               {{username}}!</p>
-          </li>
+          </li "nav-item">
 
-          
+             <img
+              class="nav-link"
+              src="{{image}}"
+              alt="imageProfile"
+              srcset=""   
+              height="100px"
+            />
+          </li>
 
         </ul>
 
@@ -71,15 +78,7 @@
             <a class="nav-link" href="/auth/login">Log In</a>
           </li>
           <li class="nav-item">
-            <img
-              class="nav-link"
-              src="{{image}}"
-              alt="imageProfile"
-              srcset=""
-              width="30px"
-              height="30px"
-            />
-          </li>
+         
         </ul>
 
       {{/if}}
