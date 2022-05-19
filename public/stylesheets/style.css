@@ -562,3 +562,35 @@ footer {
   width:          1px;  
      
 }
+
+#wallet-position-edit{
+  margin-left: 100px;
+  margin-top: 90px;
+}
+
+/* .wallet-edition-button{
+  display: flex;
+  flex-direction: column;
+} */
+
+#wallet-details-logo{
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  justify-content: center ;
+  align-content: space-around;
+  flex-direction: row;
+  margin-bottom: 60px;
+  width: 500px;
+}
+
+#wallet-details-logo p{
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  justify-content: center ;
+  align-content: center;
+  flex-direction: column;
+  margin-bottom: 60px;
+  
+}

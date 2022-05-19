@@ -8,21 +8,28 @@
     <h2 class="coins-details-name">{{walletList.cryptoName}}</h2>
 
     <br /><br />
+    <div id="wallet-details-logo">
+        <img src="{{walletList.cryptoImg}}" alt="logo" />
 
-    <img src="{{walletList.cryptoImg}}" alt="logo" />
+      <ul>
+        {{! Position value estaba como "purchase Value", pero es erroneo. Lo que arroja esa cifra es cantidad comprada * precio }}
+      <li>Position Value: $ {{walletList.purchaseValue}}</li>
+      {{#each nowPrice}}
+        <li>Current Price: $ {{this.current_price}} </li>
+      {{/each}}
 
-    <br /><br />
+      <li>Purchase Price: {{walletList.purchaseValue}}</li>
+      {{#each nowPrice}}
+        <li>Current Price:{{this.current_price}} </li>
+      {{/each}}
+      </ul>
+      
+    </div>
 
-    {{! Position value estaba como "purchase Value", pero es erroneo. Lo que arroja esa cifra es cantidad comprada * precio }}
-    <p>Position Value: $ {{walletList.purchaseValue}}</p>
-    {{#each nowPrice}}
-      <P>Current Price: $ {{this.current_price}} </P>
-    {{/each}}
+  
 
-    <p>Purchase Price: {{walletList.purchaseValue}}</p>
-    {{#each nowPrice}}
-      <P>Current Price:{{this.current_price}} </P>
-    {{/each}}
+    
+
 
     {{! Action tiene que ser el mismo que la ruta post, por eso hemos puesto el ID dinámico  }}
 
@@ -39,6 +46,7 @@
     <form action="/wallet/{{walletList._id}}" method="POST">
 
       <label for="amount">Amount: </label>
+      <br>
       <input
         type="number"
         name="amount"
@@ -49,6 +57,7 @@
       <br /><br />
 
       <label for="purchasePrice">Purchase Price ($): </label>
+      <br>
       <input
         type="number"
         name="purchasePrice"
@@ -56,12 +65,14 @@
         step="0.00000001"
       />
       <br />
-
+    
       <button class="btn btn-success">Modify</button>
-    </form>
+        </form>
 
-    <form action="/wallet/{{walletList._id}}/delete" method="POST">
-      <button class="btn btn-danger">Delete</button>
-    </form>
+        <form action="/wallet/{{walletList._id}}/delete" method="POST">
+          <button class="btn btn-Danger">Delete</button>
+        </form>
+
+      
   </div>
 </div>
