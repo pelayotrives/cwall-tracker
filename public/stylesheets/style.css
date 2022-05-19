@@ -370,12 +370,12 @@ footer {
   color: rgb(50,250,0,0.8);;
 }
 
-<<<<<<< HEAD
+
 
 /* -------------------- Wallet List ---------------------- */
 
 
-#coins-prices-container {
+#wallet-list-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -383,16 +383,35 @@ footer {
   flex-direction: column;
   margin-bottom: 60px;
 }
-=======
-/* -------------------- Profile ---------------------- */
+#wallet-list-container a {
+  text-decoration: none;
+  font-weight: bold;
+  font-style: italic;
+  color: white;
+  transition: all 500ms;
+}
 
-/* Insertar código aquí, Pelayo. */
+#wallet-list-container a:hover {
+  text-decoration: none;
+  font-size: 18px;
+  font-style: normal;
+  color: rgb(50,250,0,0.8);
+}
 
-/* -------------------- Wallet List de Pablo ---------------------- */
+#wallet-list-thead {
+  border: none;
+  background-color: rgb(49, 49, 49);
+  height: 50px;
+  text-align: center;
+}
 
-/* Insertar código aquí, Pablo. */
+#wallet-list-tbody {
+  height: 50px;
+  text-align: center;
+}
 
-/* -------------------- Imagen de Josu ---------------------- */
-
-/* Insertar código aquí, Josu. */
->>>>>>> 8cb0721f8624619060d99b434a0807a3fd0de274
+#wallet-list-title {
+  font-family: "Koulen";
+  font-size: 75px;
+  letter-spacing: 4px;
+}
