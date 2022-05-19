@@ -53,12 +53,17 @@
 
 <div id="wallet-profit-container">
 
-<h2 style="display: none ;" id="total-profit" style="color:azure"> Your Total pofit is: {{yourProfitDecimal}} $</h2>
+<h2 style="display: none ;" id="total-profit" style="color:azure"> Your Total pofit is: {{yourProfitDecimal}} <span></span>$</h2>
 
 <button id="ShowProfit" class="send-button">Calculate your profit</button>
 <script>
   const show = document.querySelector("#ShowProfit");
   const totalProfit = document.querySelector("#total-profit");
+  if ({{yourProfitDecimal}}<0){
+    totalProfit.style.color='red'
+  }else{
+    totalProfit.style.color='rgb(50,250,0,0.8)'
+  }
   
   const showPrice =()=>{
     totalProfit.style.display='flex'
