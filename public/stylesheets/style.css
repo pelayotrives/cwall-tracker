@@ -369,3 +369,16 @@ footer {
 .red-name {
   color: rgb(50,250,0,0.8);;
 }
+
+
+/* -------------------- Wallet List ---------------------- */
+
+
+#coins-prices-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
