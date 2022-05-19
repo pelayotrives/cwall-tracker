@@ -30,6 +30,7 @@ app.use((req, res, next) => {
     // Variable global de HBS para mostrar u ocultar elementos (por ejemplo, algunas zonas del NAV dependiendo del rol del usuario). True por defecto, la asignamos cuando
     res.locals.userIsActive = true;
     res.locals.username = req.session.user.username;
+    res.locals.image = req.session.user.image;
 
     // Al hacer login únicamente. Si el usuario tiene el valor de VIP como true...
     if (req.session.user.vip === true) {
@@ -39,6 +40,7 @@ app.use((req, res, next) => {
     //Pasa la variable local al falso para que podamos visualizar lo botones del nav que necesitamos
     res.locals.userIsActive = false; // Cuando deslogueamos, asignamos a false.
     res.locals.username = "";
+    res.locals.image = "";
     res.locals.userIsVip = false; // Cuando deslogueamos, asignamos a false.
   }
 
