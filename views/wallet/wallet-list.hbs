@@ -47,6 +47,20 @@
 
 </table>
 
+<h2 style="display: none ;" id="total-profit" style="color:azure"> Your Total pofit is: {{yourProfit}} $</h2>
+
+<button id="ShowProfit">Calcula tu Profit</button>
+<script>
+  const show = document.querySelector("#ShowProfit");
+  const totalProfit = document.querySelector("#total-profit");
+  
+  const showPrice =()=>{
+    totalProfit.style.display='flex'
+  }
+  
+    show.addEventListener('click',showPrice)
+</script>
+
         
    
 
