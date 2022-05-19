@@ -1,35 +1,37 @@
-<h1>Your Coin List</h1>
+<div id="wallet-list-container">
 
-<table>
-  <thead>
-    <th style="width:185px; height:35px;">Logo</th>
-    <th style="width:185px; height:35px;">Name</th>
-    <th style="width:185px; height:35px;">Amount</th>
-    <th style="width:205px; height:35px;">Profit ($)</th>
-    <th style="width:205px; height:35px;">Profit (%)</th>
+ <h1 id="wallet-list-title">Your Coin List</h1>
+
+<table id="wallet-list-table">
+  <thead id="wallet-list-thead">
+    <th class="wallet-list-th" style="width:185px; height:35px;">Logo</th>
+    <th class="wallet-list-th" style="width:185px; height:35px;">Name</th>
+    <th class="wallet-list-th" style="width:185px; height:35px;">Amount</th>
+    <th class="wallet-list-th" style="width:205px; height:35px;">Profit ($)</th>
+    <th class="wallet-list-th" style="width:205px; height:35px;">Profit (%)</th>
     
   </thead>
-  <tbody>
+  <tbody id="wallet-list-tbody">
 
     {{#each walletList}}
-      <tr>
-        <td style="width:185px; height:30px;">
+      <tr class="wallet-list-tr">
+        <td class="wallet-list-td" style="width:185px; height:30px;">
           <img src="{{this.cryptoImg}}" alt="Coin image" width="20px" />
         </td>
 
-        <td style="width:185px; height:30px;">
+        <td td class="wallet-list-td" style="width:185px; height:30px;">
           <a href="/wallet/{{this._id}}">
             {{this.cryptoName}}
           </a>
         </td>
-        <td style="width:185px; height:30px;">
+        <td class="wallet-list-td" style="width:185px; height:30px;">
           {{this.amount}}
         </td>
           </td>
-        <td style="width:185px; height:30px;">
+        <td class="wallet-list-td" style="width:185px; height:30px;">
           {{this.profit}}
         </td>
-        <td style="width:185px; height:30px;">
+        <td class="wallet-list-td" style="width:185px; height:30px;">
           {{this.profitPercentage}}
         </td>
 
@@ -46,6 +48,8 @@
   
 
 </table>
+ 
+</div>
 
         
    
