@@ -1,22 +1,30 @@
-<h1>Log In!</h1>
-<br>
+<div id="login-container">
 
-<form action="/auth/login" method="POST">
+  <div id="login-content">
+    <h1 id="login-title">Log In!</h1>
+    <br />
 
-    <label for="username">Username: </label>
-    <input type="text" name="username">
+    <form action="/auth/login" method="POST">
 
-    <br><br>
+      <label for="username">Username</label>
+      <br />
+      <input class="form-input" type="text" name="username" />
 
-    <label for="password">Password: </label>
-    <input type="password" name="password">
+      <br /><br />
 
-    <br><br>
+      <label for="password">Password</label>
+      <br />
+      <input class="form-input" type="password" name="password" />
 
-    <button>Log In</button>
+      <br /><br /><br />
 
-    <br><br>
+      <button class="send-button">Log In</button>
 
-    {{errorMessage}}
+      <br />
 
-</form>
+      <span id="login-error">{{errorMessage}}</span>
+
+    </form>
+  </div>
+
+</div>

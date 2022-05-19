@@ -1,27 +1,36 @@
-<h1>Sign Up!</h1>
-<br>
+<div id="signup-container">
 
-<form action="/auth/signup" method="POST">
+  <div id="signup-content">
+    <h1 id="signup-title">Sign Up Here!</h1>
+    <br />
 
-    <label for="username">Username: </label>
-    <input type="text" name="username">
+    <form action="/auth/signup" method="POST">
 
-    <br><br>
+      <label for="username">Username</label>
+      <br />
+      <input class="form-input" type="text" name="username" />
 
-    <label for="email">Email: </label>
-    <input type="email" name="email">
+      <br /><br />
 
-    <br><br>
+      <label for="email">Email</label>
+      <br />
+      <input class="form-input" type="email" name="email" />
 
-    <label for="password">Password: </label>
-    <input type="password" name="password">
+      <br /><br />
 
-    <br><br>
+      <label for="password">Password</label>
+      <br />
+      <input class="form-input" type="password" name="password" />
 
-    <button>Sign Up</button>
+      <br /><br /><br />
 
-    <br><br>
+      <button class="send-button">Sign Up</button>
 
-    {{errorMessage}}
+      <br />
 
-</form>
+      <span id="signup-error">{{errorMessage}}</span> 
+
+    </form>
+  </div>
+
+</div>
