@@ -1,7 +1,15 @@
 <div id="coins-prices-container">
 
-  <h1 id="coins-prices-title">Coin wall</h1>
-  <br />
+<form action="">
+  <label for="search">Search Coin</label>
+  <input
+    type="text"
+    name="search"
+    placeholder="Search your Crypto by NAME or SYMBOL "
+    size="40"
+  />
+  <button>Search</button>
+</form>
 
   <form id="coins-prices-form" action="">
     <label for="search">Search Coin </label>
@@ -31,7 +39,11 @@
 
       {{#each coinList}}
 
-        <tr class="coins-prices-tr">
+        <td style="width:185px; height:30px;">
+          <a href="/coinprice/{{this.id}}">
+            <img src="{{this.image}}" alt="Coin image" width="40px" />
+          </a>
+        </td>
 
           <td
             class="coins-prices-td"
@@ -40,14 +52,11 @@
             <img src="{{this.image}}" alt="Coin image" width="20px" />
           </td>
 
-          <td
-            class="coins-prices-td"
-            style="width:185px; border-bottom: 5px solid rgb(49, 49, 49); height:70px;"
-          >
-            <a href="/coinprice/{{this.id}}">
-              {{this.name}}
-            </a>
-          </td>
+        <td style="width:185px; height:30px;">
+          <a href="/coinprice/{{this.id}}">
+            {{this.symbol}}
+          </a>
+        </td>
 
           <td
             class="coins-prices-td"
