@@ -1,37 +1,37 @@
 <div id="wallet-list-container">
 
- <h1 id="wallet-list-title">Your Coin List</h1>
+ <h1 id="wallet-list-title">Your Coins List</h1>
 
 <table id="wallet-list-table">
   <thead id="wallet-list-thead">
-    <th class="wallet-list-th" style="width:185px; height:35px;">Logo</th>
-    <th class="wallet-list-th" style="width:185px; height:35px;">Name</th>
-    <th class="wallet-list-th" style="width:185px; height:35px;">Amount</th>
-    <th class="wallet-list-th" style="width:205px; height:35px;">Profit ($)</th>
-    <th class="wallet-list-th" style="width:205px; height:35px;">Profit (%)</th>
+    <th class="wallet-list-th" style="width:250px; height:75px;">Logo</th>
+    <th class="wallet-list-th" style="width:250px; height:75px;">Name</th>
+    <th class="wallet-list-th" style="width:250px; height:75px;">Amount</th>
+    <th class="wallet-list-th" style="width:250px; height:75px;">Profit ($)</th>
+    <th class="wallet-list-th" style="width:250px; height:75px;">Profit (%)</th>
     
   </thead>
   <tbody id="wallet-list-tbody">
 
     {{#each walletList}}
       <tr class="wallet-list-tr">
-        <td class="wallet-list-td" style="width:185px; height:30px;">
-          <img src="{{this.cryptoImg}}" alt="Coin image" width="20px" />
+        <td class="wallet-list-td" style="width:185px; border-bottom: 5px solid rgb(49, 49, 49); height:70px;">
+          <img src="{{this.cryptoImg}}" alt="Coin image" width="40px" />
         </td>
 
-        <td td class="wallet-list-td" style="width:185px; height:30px;">
+        <td td class="wallet-list-td" style="width:185px; border-bottom: 5px solid rgb(49, 49, 49); height:70px;">
           <a href="/wallet/{{this._id}}">
             {{this.cryptoName}}
           </a>
         </td>
-        <td class="wallet-list-td" style="width:185px; height:30px;">
+        <td class="wallet-list-td" style="width:185px; border-bottom: 5px solid rgb(49, 49, 49); height:70px;">
           {{this.amount}}
         </td>
           </td>
-        <td class="wallet-list-td" style="width:185px; height:30px;">
+        <td class="wallet-list-td" style="width:185px; border-bottom: 5px solid rgb(49, 49, 49); height:70px;">
           {{this.profit}}
         </td>
-        <td class="wallet-list-td" style="width:185px; height:30px;">
+        <td class="wallet-list-td" style="width:185px; border-bottom: 5px solid rgb(49, 49, 49); height:70px;">
           {{this.profitPercentage}}
         </td>
 
@@ -44,14 +44,16 @@
   </tbody>
 
 
-  <h2 style="color:azure"> Your Total pofit is: {{yourProfit}} $</h2>
+  
   
 
 </table>
  
 </div>
 
-<h2 style="display: none ;" id="total-profit" style="color:azure"> Your Total pofit is: {{yourProfit}} $</h2>
+<div id="wallet-profit-container">
+
+<h2 style="display: none ;" id="total-profit" style="color:azure"> Your Total pofit is: {{yourProfitDecimal}} $</h2>
 
 <button id="ShowProfit">Calcula tu Profit</button>
 <script>
@@ -64,6 +66,10 @@
   
     show.addEventListener('click',showPrice)
 </script>
+
+</div>
+
+
 
         
    

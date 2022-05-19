@@ -401,10 +401,118 @@ footer {
   flex-direction: row;
 }
 
-/* -------------------- Wallet List de Pablo ---------------------- */
+/* -------------------- Wallet List ---------------------- */
 
-/* Insertar código aquí, Pablo. */
 
-/* -------------------- Imagen de Josu ---------------------- */
+#wallet-list-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+#wallet-list-container a {
+  text-decoration: none;
+  font-weight: bold;
+  font-style: italic;
+  color: white;
+  transition: all 500ms;
+}
 
-/* Insertar código aquí, Josu. */
+#wallet-list-container a:hover {
+  text-decoration: none;
+  font-size: 18px;
+  font-style: normal;
+  color: rgb(50,250,0,0.8);
+}
+
+#wallet-list-thead {
+  border: none;
+  background-color: rgb(49, 49, 49);
+  height: 50px;
+  text-align: center;
+}
+
+#wallet-list-tbody {
+  height: 50px;
+  text-align: center;
+}
+
+#wallet-list-title {
+  font-family: "Koulen";
+  font-size: 75px;
+  letter-spacing: 4px;
+}
+
+
+
+#wallet-profit-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+
+/* -------------------- Coins Details ---------------------- */
+
+
+#coins-details-container {
+  display: flex;
+  align-items:center;
+  margin-left: 50px;
+  
+  justify-content: space-around ;
+  align-content: center;
+  flex-direction: row;
+  margin-bottom: 60px;
+}
+
+.coins-details-name {
+  text-transform: uppercase;
+  font-size: 50px;
+}
+
+#coins-details-symbol{
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+#coins-details-block1 {
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+.coins-details-block2{
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+.coins-details-block2 ul{
+  font-size: 25px;
+}
+.coins-details-name2 {
+  text-transform: uppercase;
+  font-size: 50px;
+  margin-top: -5px;
+}
+.coins-details-name3 {
+  text-transform: uppercase;
+  font-size: 50px;
+  margin-top: -42px;
+}
+
+#chart-wallet-container {
+  margin-left: 100px;
+  margin-right: 100px;
+}

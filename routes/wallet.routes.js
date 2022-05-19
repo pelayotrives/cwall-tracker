@@ -96,9 +96,11 @@ router.get("/walletlist", async (req, res, next) => {
       yourProfit += eachElement.profit;
     });
 
+    let yourProfitDecimal = yourProfit.toFixed(2);
+
     res.render("wallet/wallet-list.hbs", {
       walletList,
-      yourProfit,
+      yourProfitDecimal,
     });
   } catch (err) {
     next(err);
