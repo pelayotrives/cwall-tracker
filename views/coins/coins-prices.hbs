@@ -4,7 +4,12 @@
 
 <form action="">
   <label for="search">Search Coin</label>
-  <input type="text" name="search" />
+  <input
+    type="text"
+    name="search"
+    placeholder="Search your Crypto by NAME or SYMBOL "
+    size="40"
+  />
   <button>Search</button>
 </form>
 
@@ -28,7 +33,9 @@
       <tr>
 
         <td style="width:185px; height:30px;">
-          <img src="{{this.image}}" alt="Coin image" width="20px" />
+          <a href="/coinprice/{{this.id}}">
+            <img src="{{this.image}}" alt="Coin image" width="40px" />
+          </a>
         </td>
 
         <td style="width:185px; height:30px;">
@@ -38,7 +45,9 @@
         </td>
 
         <td style="width:185px; height:30px;">
-          {{this.symbol}}
+          <a href="/coinprice/{{this.id}}">
+            {{this.symbol}}
+          </a>
         </td>
 
         <td style="width:185px; height:30px;" step="0.1">

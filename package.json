@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "chart.js": "^3.7.1",
     "coingecko-api": "^1.0.10",
     "connect-mongo": "^4.6.0",
     "cookie-parser": "^1.4.6",
