@@ -69,4 +69,43 @@ router.post("/delete", async (req, res, next) => {
   }
 });
 
+
+
+// POST UPLOAD FOTO PERFIL
+
+const uploader = require("../middlewares/uploader");
+const async = require("hbs/lib/async");
+
+
+router.post("/upload", uploader.single("image"), async (req, res, next) => {
+  console.log("intentando enviar la imagen")
+  // utilizamos paquete cloudinary (cogemos la imagen que estamos subiendo, la enviamos a Cloudinary y éste nos devuelve un enlace)
+  // console.log(req.file)
+  
+  // const { user  } = req.session
+  // console.log(user)
+  // const { id } = req.params
+  // User.findByIdAndUpdate(user._id, {
+  //    image: req.file
+  // })
+  // .then((response) => {
+  //   res.redirect("/profile")
+  // })
+  // .catch((err) => {
+  //   next(err)
+  // })
+
+    const { user } = req.session
+    const { id } = req.params
+    try {
+      await User.findByIdAndUpdate(user._id, {
+        image: req.file.path
+      })
+
+      res.redirect("/profile")
+    } catch(err) {
+      next(err)
+    }
+})
+
 module.exports = router;
