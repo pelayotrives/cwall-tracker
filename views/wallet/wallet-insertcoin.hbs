@@ -1,30 +1,34 @@
-<h1>Insert Coin</h1>
-<br /><br />
-
-<form action="/wallet/insertcoin" method="POST">
-
-  {{! Nombres de todas las monedas }}
-  <select name="cryptoName" id="select-currency">
-    {{#each walletData}}
-      <option value="{{this.id}}">{{this.name}}</option>
-    {{/each}}
-  </select>
+<div id="profile-container">
+  <h1 id="profile-title">Insert Coin</h1>
   <br /><br />
 
-  {{! Precio de Compara }}
-  <label for="purchasePrice">Purchase price : </label>
-  <input type="number" value="" name="purchasePrice" />
-  <br /><br />
+  <form action="/wallet/insertcoin" method="POST">
 
-  {{! Cantidad a insertar por el usuario de la moneda seleccionada }}
-  <label for="amount">Quantity: </label>
-  <input type="number" value="" name="amount" />
-  <br /><br />
+    {{! Nombres de todas las monedas }}
+    <select name="cryptoName" id="select-currency">
+      {{#each walletData}}
+        <option value="{{this.id}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+    <br /><br />
 
-  {{! Valor de la cantidad que tiene el usuario de dicha moneda }}
-  <span></span>
-  <br /><br />
+    {{! Precio de Compara }}
+    <label for="purchasePrice">Purchase price : </label>
+   <br>
+   <input type="number" value="" name="purchasePrice" />
+    <br /><br />
 
-  <button>Add</button>
+    {{! Cantidad a insertar por el usuario de la moneda seleccionada }}
+    <label for="amount">Quantity: </label>
+    <br>
+    <input type="number" value="" name="amount" />
+    <br /><br />
 
-</form>
+    {{! Valor de la cantidad que tiene el usuario de dicha moneda }}
+    <span></span>
+    <br />
+
+    <button class="send-button">Add</button>
+
+  </form>
+</div>
