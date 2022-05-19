@@ -14,7 +14,7 @@ body {
 }
 
 .navbar {
-  padding: 5px;
+  padding: 20px;
   background: linear-gradient(0deg, black, rgb(38, 38, 38));
   display: flex;
   align-content: center;
@@ -24,7 +24,7 @@ body {
 
 .nav-link {
   color: white;
-  margin: 20px 35px;
+  margin: 0px 125px 0px 0px;
   font-size: 14px;
   transition: all 500ms;
 }
@@ -148,6 +148,7 @@ footer {
   border: none;
   background: white;
   padding: 10px 40px;
+  text-align: center;
   border-radius: 10px;
   display: flex;
   margin: 0 auto;
@@ -224,4 +225,128 @@ footer {
   position: relative;
 }
 
-/* -------------------- Log In ---------------------- */
+/* -------------------- Tabla de precios ---------------------- */
+
+#coins-prices-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+
+#coins-prices-container a {
+  text-decoration: none;
+  color: #5e9baf;
+  transition: all 500ms;
+}
+
+#coins-prices-container a:hover {
+  text-decoration: none;
+  color: red;
+}
+
+#coins-prices-thead {
+  border: none;
+  background-color: rgb(49, 49, 49);
+  height: 50px;
+  text-align: center;
+}
+
+#coins-prices-tbody {
+  height: 50px;
+  text-align: center;
+}
+
+#coins-prices-title {
+  font-family: "Koulen";
+  font-size: 75px;
+  letter-spacing: 4px;
+}
+
+#nav-button {
+  border: none;
+  background: white;
+  padding: 3px 20px;
+  margin-left: 20px;
+  border-radius: 10px;
+  transition: ease-in-out 400ms;
+}
+
+#nav-button:hover {
+  background: #5e9baf;
+  color: white;
+  border-radius: 15px;
+  padding: 3px 35px;
+}
+
+/* -------------------- Profile ---------------------- */
+
+#profile-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  top: 43%;
+  transform: translateY(-50%);
+  padding: 30px;
+  background-color: rgb(91, 91, 91, 0.3);
+  margin: 0 auto;
+  width: 40%;
+  border-radius: 80px;
+  box-shadow: 10px 10px 10px 3px rgba(0, 0, 0, 0.2);
+}
+
+#profile-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  text-align: center;
+}
+
+#profile-title {
+  font-family: "Koulen";
+  font-size: 75px;
+  letter-spacing: 4px;
+}
+
+#profile-edit-button a {
+  text-decoration: none;
+}
+
+#profile-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+}
+
+.profile-send-button {
+  border: none;
+  background: white;
+  padding: 10px 40px;
+  text-align: center;
+  border-radius: 10px;
+  display: flex;
+  margin: 0 auto;
+  transition: ease-in-out 500ms;
+}
+
+#profile-send-button-red:hover {
+  background: red;
+  color: white;
+}
+
+#profile-send-button-orange:hover {
+  background: rgb(255, 169, 10);
+  color: white;
+}
+
+.red-name {
+  color: red;
+}

@@ -14,7 +14,13 @@
 
 <img src="{{walletList.cryptoImg}}" alt="logo" />
 
-<br /><br />
+  <br /><br />
+
+{{!-- Position value estaba como "purchase Value", pero es erroneo. Lo que arroja esa cifra es cantidad comprada * precio --}}
+  <p>Position Value: $ {{walletList.purchaseValue}}</p>
+  {{#each nowPrice}}
+    <P>Current Price: $ {{this.current_price}} </P>
+  {{/each}}
 
 <p>Purchase Price: {{walletList.purchaseValue}}</p>
 {{#each nowPrice}}
@@ -32,7 +38,7 @@
 <form action="/wallet/{{walletList._id}}" method="POST">
 
   <label for="amount">Amount: </label>
-  <input type="number" name="amount" value="{{walletList.amount}}" />
+  <input type="number" name="amount" value="{{walletList.amount}}" step="0.00000001"/>
 
   <br /><br />
 
@@ -41,8 +47,9 @@
     type="number"
     name="purchasePrice"
     value="{{walletList.purchasePrice}}"
-  />
-  <br />
+    step="0.00000001"
+  /> 
+  <br>
 
   <button class="btn btn-success">Modify</button>
 </form>
