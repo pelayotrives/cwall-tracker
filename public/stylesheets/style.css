@@ -415,3 +415,15 @@ footer {
   font-size: 75px;
   letter-spacing: 4px;
 }
+
+
+
+#wallet-profit-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+
