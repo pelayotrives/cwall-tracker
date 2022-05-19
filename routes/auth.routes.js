@@ -22,7 +22,7 @@ router.post("/signup", async (req, res, next) => {
 
   if (!username || !email || !password) {
     res.render("auth/signup.hbs", {
-      errorMessage: "You have to fill in all the fields!",
+      errorMessage: "Fill in all the fields!",
     });
     //? Este return vacío indica que hasta aquí llega mi ruta. Se traduce a: "Si llega a haber un problema, detén la ejecución de la función anónima".
     return;
@@ -36,7 +36,7 @@ router.post("/signup", async (req, res, next) => {
   if (passwordRegex.test(password) === false) {
     res.render("auth/signup", {
       errorMessage:
-        "Your password should contain at least 8 chars with one number and one lowercase letter!",
+        "Improve your password!",
     });
     //? Este return vacío indica que hasta aquí llega mi ruta. Se traduce a: "Si llega a haber un problema, detén la ejecución de la función anónima".
     return;
@@ -52,7 +52,7 @@ router.post("/signup", async (req, res, next) => {
     });
     if (foundUser !== null) {
       res.render("auth/signup.hbs", {
-        errorMessage: "This user is already registered!",
+        errorMessage: "User already registered!",
       });
       //? Este return vacío indica que hasta aquí llega mi ruta. Se traduce a: "Si llega a haber un problema, detén la ejecución de la función anónima".
       return;
@@ -100,7 +100,7 @@ router.post("/login", async (req, res, next) => {
 
   if (!username || !password) {
     res.render("auth/login.hbs", {
-      errorMessage: "You have to fill in all the fields!",
+      errorMessage: "Fill in all the fields!",
     });
     //? Este return vacío indica que hasta aquí llega mi ruta. Se traduce a: "Si llega a haber un problema, detén la ejecución de la función anónima".
     return;
@@ -112,7 +112,7 @@ router.post("/login", async (req, res, next) => {
     const foundUser = await User.findOne({ username: username });
     if (foundUser === null) {
       res.render("auth/login.hbs", {
-        errorMessage: "This user does not exist!",
+        errorMessage: "User does not exist!",
       });
       //? Este return vacío indica que hasta aquí llega mi ruta. Se traduce a: "Si llega a haber un problema, detén la ejecución de la función anónima".
       return;
