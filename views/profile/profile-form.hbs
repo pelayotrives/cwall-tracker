@@ -1,51 +1,44 @@
-<div id="profile-edit-container">
+<div id="profile-edit-content">
 
-  <div id="profile-edit-container">
+  <h1 id="profile-edit-title">Edit profile</h1>
+  <br />
 
-    <h1 id="profile-edit-title">Edit profile</h1>
+  <form action="/profile/edit" method="POST">
+
+    <label for="username">Username: </label>
     <br />
+    <input
+      class="form-input"
+      type="text"
+      name="username"
+      value="{{profile.username}}"
+    />
 
-    <form action="/profile/edit" method="POST">
+    <br /><br />
 
-      <label for="username">Username: </label>
-      <br>
-      <input class="form-input" type="text" name="username" value="{{profile.username}}" />
+    <label for="email">Email: </label>
+    <br />
+    <input
+      class="form-input"
+      type="email"
+      name="email"
+      value="{{profile.email}}"
+    />
 
-      <br /><br />
+    <br /><br />
 
-      <label for="email">Email: </label>
-      <br>
-      <input class="form-input" type="email" name="email" value="{{profile.email}}" />
+    <button class="send-button">Edit</button>
 
-      <br /><br />
+  </form>
 
-      {{!-- <label for="password">Password: </label>
-  <input type="password" name="password" value="{{profile.username}}" />
-
-  <br /><br /> --}}
-
-      <button class="send-button">Edit</button>
-
-    </form>
-
+  <div class="profile-edite-formpic">
     <form action="/profile/upload" method="POST" enctype="multipart/form-data">
 
       <label for="image">Picture:</label>
-      <br>
+      <br />
       <input class="form-input" type="file" name="image" />
-      <br><br>
-      <button  class="send-button" type="submit">Add picture</button>
-
+      <button class="send-button" type="submit">Add picture</button>
     </form>
+  </div>
 
-<label for="image" value="Select File">Imagen:</label>
-<input type="file" name="image">
-
-<button type="submit" >Añadir Imagen</button>
-
-</form>
-
-{{!-- 
-<form action="/profile/{{profile_id}}/delete">
-  <button>delete</button>
-</form> --}}
+</div>

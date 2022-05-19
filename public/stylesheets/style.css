@@ -11,6 +11,7 @@ body {
   color: white;
   font-size: 17px;
   font-family: "Archivo", Helvetica, Arial, sans-serif;
+  
 }
 
 .navbar {
@@ -370,9 +371,35 @@ footer {
   color: rgb(50,250,0,0.8);;
 }
 
-/* -------------------- Profile ---------------------- */
+/* -------------------- Profile Detail ---------------------- */
 
-/* Insertar código aquí, Pelayo. */
+#profile-edit-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  top: 43%;
+  transform: translateY(-50%);
+  padding: 30px;
+  background-color: rgb(91, 91, 91, 0.3);
+  margin: 0 auto;
+  width: 40%;
+  border-radius: 80px;
+  box-shadow: 0px 10px 40px 5px rgba(0, 0, 0, 0.8)
+}
+
+#profile-edit-title {
+  font-family: "Koulen";
+  font-size: 75px;
+  letter-spacing: 4px;
+}
+
+.profile-edit-formpic {
+  display: flex;
+  flex-direction: row;
+}
 
 /* -------------------- Wallet List de Pablo ---------------------- */
 
