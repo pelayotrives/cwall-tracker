@@ -22,6 +22,18 @@
 
 </form>
 
+
+<h3>Agregar imagen de perfil</h3>
+
+<form action="/profile/upload" method="POST" enctype="multipart/form-data">
+
+<label for="image">Imagen:</label>
+<input type="file" name="image">
+
+<button type="submit">Añadir Imagen</button>
+
+</form>
+
 {{!-- 
 <form action="/profile/{{profile_id}}/delete">
   <button>delete</button>
