@@ -1,59 +1,67 @@
-<div>
-  <h2>{{profile.username}}</h2>
-  <h2></h2>
+<div id="wallet-details-all">
+  <div id="wallet-position-details">
+    <h1>{{profile.username}} position details</h1>
+    <br /><br />
+
+    <br /><br />
+
+    <h2 class="coins-details-name">{{walletList.cryptoName}}</h2>
+
+    <br /><br />
+
+    <img src="{{walletList.cryptoImg}}" alt="logo" />
+
+    <br /><br />
+
+    {{! Position value estaba como "purchase Value", pero es erroneo. Lo que arroja esa cifra es cantidad comprada * precio }}
+    <p>Position Value: $ {{walletList.purchaseValue}}</p>
+    {{#each nowPrice}}
+      <P>Current Price: $ {{this.current_price}} </P>
+    {{/each}}
+
+    <p>Purchase Price: {{walletList.purchaseValue}}</p>
+    {{#each nowPrice}}
+      <P>Current Price:{{this.current_price}} </P>
+    {{/each}}
+
+    {{! Action tiene que ser el mismo que la ruta post, por eso hemos puesto el ID dinámico  }}
+
+    
+  </div>
+
+    <hr id="vertical-hr" />
+
+  <div id="wallet-position-edit">
+    <h2 class="coins-details-name">Edit position</h2>
+
+    <br /><br />
+
+    <form action="/wallet/{{walletList._id}}" method="POST">
+
+      <label for="amount">Amount: </label>
+      <input
+        type="number"
+        name="amount"
+        value="{{walletList.amount}}"
+        step="0.00000001"
+      />
+
+      <br /><br />
+
+      <label for="purchasePrice">Purchase Price ($): </label>
+      <input
+        type="number"
+        name="purchasePrice"
+        value="{{walletList.purchasePrice}}"
+        step="0.00000001"
+      />
+      <br />
+
+      <button class="btn btn-success">Modify</button>
+    </form>
+
+    <form action="/wallet/{{walletList._id}}/delete" method="POST">
+      <button class="btn btn-danger">Delete</button>
+    </form>
+  </div>
 </div>
-
-<h1>Your Position Details</h1>
-<br /><br />
-
-<br /><br />
-
-<h2>{{walletList.cryptoName}}</h2>
-
-<br /><br />
-
-<img src="{{walletList.cryptoImg}}" alt="logo" />
-
-  <br /><br />
-
-{{!-- Position value estaba como "purchase Value", pero es erroneo. Lo que arroja esa cifra es cantidad comprada * precio --}}
-  <p>Position Value: $ {{walletList.purchaseValue}}</p>
-  {{#each nowPrice}}
-    <P>Current Price: $ {{this.current_price}} </P>
-  {{/each}}
-
-<p>Purchase Price: {{walletList.purchaseValue}}</p>
-{{#each nowPrice}}
-  <P>Current Price:{{this.current_price}} </P>
-{{/each}}
-
-{{! Action tiene que ser el mismo que la ruta post, por eso hemos puesto el ID dinámico  }}
-
-<hr />
-
-<h1>Edit your position</h1>
-
-<br /><br />
-
-<form action="/wallet/{{walletList._id}}" method="POST">
-
-  <label for="amount">Amount: </label>
-  <input type="number" name="amount" value="{{walletList.amount}}" step="0.00000001"/>
-
-  <br /><br />
-
-  <label for="purchasePrice">Purchase Price ($): </label>
-  <input
-    type="number"
-    name="purchasePrice"
-    value="{{walletList.purchasePrice}}"
-    step="0.00000001"
-  /> 
-  <br>
-
-  <button class="btn btn-success">Modify</button>
-</form>
-
-<form action="/wallet/{{walletList._id}}/delete" method="POST">
-  <button class="btn btn-danger">Delete</button>
-</form>
