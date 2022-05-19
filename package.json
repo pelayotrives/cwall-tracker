@@ -9,10 +9,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "chart.js": "^3.7.1",
-<<<<<<< HEAD
     "cloudinary": "^1.30.0",
-=======
->>>>>>> f629fdd1711e4200c08d628faf5e446c6202d8c0
     "coingecko-api": "^1.0.10",
     "connect-mongo": "^4.6.0",
     "cookie-parser": "^1.4.6",
