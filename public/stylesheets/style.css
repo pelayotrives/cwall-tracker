@@ -224,4 +224,57 @@ footer {
   position: relative;
 }
 
-/* -------------------- Log In ---------------------- */
+/* -------------------- Tabla de precios ---------------------- */
+
+#coins-prices-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+#coins-prices-container a {
+  text-decoration: none;
+  color: #5e9baf;
+  transition: all 500ms;
+}
+
+#coins-prices-container a:hover {
+  text-decoration: none;
+  color: red;
+}
+
+#coins-prices-thead {
+  border: none;
+  background-color: rgb(49, 49, 49);
+  height: 50px;
+  text-align: center;
+}
+
+#coins-prices-tbody {
+  height: 50px;
+  text-align: center;
+}
+
+#coins-prices-title {
+  font-family: "Koulen";
+  font-size: 75px;
+  letter-spacing: 4px;
+}
+
+#nav-button {
+  border: none;
+  background: white;
+  padding: 3px 20px;
+  margin-left: 20px;
+  border-radius: 10px;
+  transition: ease-in-out 400ms;
+}
+
+#nav-button:hover {
+  background: #5e9baf;
+  color: white;
+  border-radius: 15px;
+  padding: 3px 35px;
+}

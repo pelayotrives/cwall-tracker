@@ -1,65 +1,92 @@
-<h1>Coin wall</h1>
-<br />
-{{! Es un bucle dentro de otro bucle porque es un array que contiene arrays que a su vez contiene objetos }}
+<div id="coins-prices-container">
 
-<form action="">
-  <label for="search">Search Coin</label>
-  <input type="text" name="search" />
-  <button>Search</button>
-</form>
+  <h1 id="coins-prices-title">Coin wall</h1>
+  <br />
 
-<table id="priceTable">
+  <form id="coins-prices-form" action="">
+    <label for="search">Search Coin </label>
+    <br>
+    <input class="form-input" size="30" type="text" name="search" />
+    <button id="nav-button">Search</button>
+  </form>
+  <br>
 
-  <thead>
+  <table id="coins-prices-table">
 
-    <th style="width:185px; height:35px;">Logo</th>
-    <th style="width:185px; height:35px;">Name</th>
-    <th style="width:185px; height:35px;">Symbol</th>
-    <th style="width:185px; height:35px;">Current Price ($)</th>
-    <th style="width:205px; height:35px;">Change Percentage (%)</th>
-    <th style="width:185px; height:35px;">Market Cap (Rank)</th>
+    <thead id="coins-prices-thead">
 
-  </thead>
+      <th class="coins-prices-th" style="width:250px; height:75px;">Logo</th>
+      <th class="coins-prices-th" style="width:250px; height:75px;">Name</th>
+      <th class="coins-prices-th" style="width:250px; height:75px;">Symbol</th>
+      <th class="coins-prices-th" style="width:250px; height:75px;">Current
+        Price</th>
+      <th class="coins-prices-th" style="width:250px; height:75px;">Change
+        Percentage</th>
+      <th class="coins-prices-th" style="width:250px; height:75px;">Market Cap
+        (Rank)</th>
 
-  <tbody>
+    </thead>
 
-    {{#each coinList}}
+    <tbody id="coins-prices-tbody">
 
-      <tr>
+      {{#each coinList}}
 
-        <td style="width:185px; height:30px;">
-          <img src="{{this.image}}" alt="Coin image" width="20px" />
-        </td>
+        <tr class="coins-prices-tr">
 
-        <td style="width:185px; height:30px;">
-          <a href="/coinprice/{{this.id}}">
-            {{this.name}}
-          </a>
-        </td>
+          <td
+            class="coins-prices-td"
+            style="width:185px; border-bottom: 5px solid rgb(49, 49, 49); height:70px;"
+          >
+            <img src="{{this.image}}" alt="Coin image" width="20px" />
+          </td>
 
-        <td style="width:185px; height:30px;">
-          {{this.symbol}}
-        </td>
+          <td
+            class="coins-prices-td"
+            style="width:185px; border-bottom: 5px solid rgb(49, 49, 49); height:70px;"
+          >
+            <a href="/coinprice/{{this.id}}">
+              {{this.name}}
+            </a>
+          </td>
 
-        <td style="width:185px; height:30px;" step="0.1">
-          {{this.current_price}}
-          <span>$</span>
-        </td>
+          <td
+            class="coins-prices-td"
+            style="width:185px; border-bottom: 5px solid rgb(49, 49, 49); height:70px;"
+          >
+            {{this.symbol}}
+          </td>
 
-        <td style="width:185px; height:30px;">
-          {{this.price_change_percentage_24h}}
+          <td
+            class="coins-prices-td"
+            style="width:185px; border-bottom: 5px solid rgb(49, 49, 49); height:70px;"
+            step="0.1"
+          >
+            {{this.current_price}}
+            <span>$</span>
+          </td>
 
-        </td>
+          <td
+            class="coins-prices-td"
+            style="width:185px; border-bottom: 5px solid rgb(49, 49, 49); height:70px;"
+          >
+            {{this.price_change_percentage_24h}}
+            <span>%</span>
+          </td>
 
-        <td style="width:185px; height:30px;">
-          {{this.market_cap_rank}}
+          <td
+            class="coins-prices-td"
+            style="width:185px; border-bottom: 5px solid rgb(49, 49, 49); height:70px;"
+          >
+            {{this.market_cap_rank}}
 
-        </td>
+          </td>
 
-      </tr>
+        </tr>
 
-    {{/each}}
+      {{/each}}
 
-  </tbody>
+    </tbody>
 
-</table>
+  </table>
+
+</div>
