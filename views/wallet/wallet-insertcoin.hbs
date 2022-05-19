@@ -5,7 +5,7 @@
   <form action="/wallet/insertcoin" method="POST">
 
     {{! Nombres de todas las monedas }}
-    <select name="cryptoName" id="select-currency">
+    <select name="cryptoName" class="select-currency">
       {{#each walletData}}
         <option value="{{this.id}}">{{this.name}}</option>
       {{/each}}
@@ -15,13 +15,13 @@
     {{! Precio de Compara }}
     <label for="purchasePrice">Purchase price : </label>
    <br>
-   <input type="number" value="" name="purchasePrice" />
+   <input type="number" value="" name="purchasePrice" class="select-currency"/>
     <br /><br />
 
     {{! Cantidad a insertar por el usuario de la moneda seleccionada }}
     <label for="amount">Quantity: </label>
     <br>
-    <input type="number" value="" name="amount" />
+    <input type="number" value="" name="amount" class="select-currency"/>
     <br /><br />
 
     {{! Valor de la cantidad que tiene el usuario de dicha moneda }}
