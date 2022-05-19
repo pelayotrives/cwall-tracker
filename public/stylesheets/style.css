@@ -427,3 +427,63 @@ footer {
   margin-bottom: 60px;
 }
 
+/* -------------------- Coins Details ---------------------- */
+
+
+#coins-details-container {
+  display: flex;
+  align-items:center;
+  margin-left: 50px;
+  
+  justify-content: space-around ;
+  align-content: center;
+  flex-direction: row;
+  margin-bottom: 60px;
+}
+
+.coins-details-name {
+  text-transform: uppercase;
+  font-size: 50px;
+}
+
+#coins-details-symbol{
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+#coins-details-block1 {
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+.coins-details-block2{
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+.coins-details-block2 ul{
+  font-size: 25px;
+}
+.coins-details-name2 {
+  text-transform: uppercase;
+  font-size: 50px;
+  margin-top: -5px;
+}
+.coins-details-name3 {
+  text-transform: uppercase;
+  font-size: 50px;
+  margin-top: -42px;
+}
+
+#chart-wallet-container {
+  margin-left: 100px;
+  margin-right: 100px;
+}

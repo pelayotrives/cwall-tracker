@@ -1,34 +1,51 @@
-<h1>Coin details</h1>
+<div id="coins-details-container">
+
+ {{!-- <h1 id="coins-details-title">Coin details</h1> --}}
 
 {{#each Detail}}
 
-  <img src="{{this.image}}" alt="" width="150px" />
+  <div id="coins-details-block1">
 
-  <h2>
-    {{this.name}}
-  </h2>
+    <h2 class="coins-details-name">
+        {{this.name}}     
+      </h2>
 
-  <h4>
-    {{this.symbol}}
-  </h4>
-  <br /><br /><br />
-  <h3>About price</h3>
+      <h3 id="coins-details-symbol">(   {{this.symbol}}    )</h3>
+      <img src="{{this.image}}" alt="" width="150px" />
+  </div>
 
-  <ul>
-    <li>Current price: {{this.current_price}} $</li>
-    <li>High in 24h: {{this.high_24h}}$</li>
-    <li>Low in 24h :{{this.low_24h}}$</li>
-    <li>Price change in 24h: {{this.price_change_24h}}%</li>
-  </ul>
+ 
 
-  <br /><br /><br />
-  <h3>About Market Cap:</h3>
-  <ul>
-    <li>Market cap {{this.market_cap}}</li>
-    <li>Market cap Rank: {{this.market_cap_rank}}</li>
-    <li>Total Volume {{this.total_volume}}</li>
-  </ul>
+  <div class="coins-details-block2">
+    <h2 class="coins-details-name2">price</h2>
+
+      <ul>
+        <li>Current price: {{this.current_price}} $</li>
+        <li>High in 24h: {{this.high_24h}}$</li>
+        <li>Low in 24h :{{this.low_24h}}$</li>
+        <li>Price change in 24h: {{this.price_change_24h}}%</li>
+      </ul>
+  </div>
+
+  <div class="coins-details-block2">   
+      <h2 class="coins-details-name3">Market Cap</h2>
+      <ul>
+        <li>Market cap {{this.market_cap}}</li>
+        <li>Market cap Rank: {{this.market_cap_rank}}</li>
+        <li>Total Volume {{this.total_volume}}</li>
+      </ul>
+
+  </div>
+ 
+  
+  
+
+  
 {{/each}}
+
+</div>
+
+<div id="chart-wallet-container">
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -40,29 +57,23 @@ const myChart = new Chart(ctx, {
     data: { //eje x e y
         labels: [{{coinDetailClear3}}],
         datasets: [{
-            label: 'Prices change in 7 days',
+            label: "Price performance in 7 days",
             data: [{{coinDetailClear3}}],
-            borderColor: '#5e9baf',
+            borderColor: "rgb(50,250,0,0.8)",
             
         }]
     },
     options:{
       scales:{
-       
-
-
-        x: {
-          
+        x: {          
           ticks:{
            callback: function(value, index, ticks) {
                         let day = value /24
-                        let hour = value *60
-                        
+                        let hour = value *60                        
                         return `${day.toFixed(0)} day`
                     }
         }
-        },
-       
+        },       
       },
       elements:{
         line:{
@@ -70,12 +81,11 @@ const myChart = new Chart(ctx, {
         },
         point:{
           radius:7,
-          
-
         }
       }
-
-    }
-    
+    }    
 });
-</script>
+</script> 
+
+</div>
+
