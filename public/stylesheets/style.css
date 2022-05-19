@@ -35,6 +35,14 @@ body {
   font-size: 17;
 }
 
+.nav-combo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
 footer {
   position: absolute; /* Funciona mejor con height: 100vh */
   text-align: center;
