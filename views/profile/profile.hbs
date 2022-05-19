@@ -1,18 +1,34 @@
-<h1>This is your profile!</h1>
-<br>
+<div id="profile-container">
 
-<img src="{{profile.image}}" alt="Your profile pic" width="300px">
-<p>Username: <strong>{{profile.username}}</strong> </p>
-<p>Email: <strong>{{profile.email}}</strong> </p>
-<br>
+  <div id="profile-content">
 
-<a href="/profile/edit"><button>Edit profile</button></a>
+    <h1 id="profile-title">Profile</h1>
+    <br />
 
-<form action="/profile/delete" method="POST">
-  <button>Delete</button>
-</form>
+    <div id="profile-image">
+      <img src="{{profile.image}}" alt="Your profile pic" width="300px" />
+      <br /><br />
+      <p>Your current username is <span class="red-name"><strong>{{profile.username}}</strong></span> </p>
+      <p>Your current email is <span class="red-name"><strong>{{profile.email}}</strong></span> </p>
+      <br />
+    </div>
 
-<form action="/auth/logout" method="POST">
-  <button>Log Out</button>
-</form>
+    <div id="profile-edit-button">
+      <a href="/profile/edit"><button class="send-button">Edit profile</button></a>
+    </div>
 
+    <br><br>
+
+    <div id="profile-buttons">
+      <form action="/profile/delete" method="POST">
+        <button class="profile-send-button" id="profile-send-button-red">Delete</button>
+      </form>
+
+      <form action="/auth/logout" method="POST">
+        <button class="profile-send-button" id="profile-send-button-orange">Log Out</button>
+      </form>
+    </div>
+
+  </div>
+
+</div>

@@ -1,38 +1,39 @@
-<h1>Edit profile</h1>
-<br />
+<div id="profile-edit-container">
 
-<form action="/profile/edit" method="POST">
+  <h1>Edit profile</h1>
+  <br />
 
-  <label for="username">Username: </label>
-  <input type="text" name="username" value="{{profile.username}}" />
+  <form action="/profile/edit" method="POST">
 
-  <br /><br />
+    <label for="username">Username: </label>
+    <input type="text" name="username" value="{{profile.username}}" />
 
-  <label for="email">Email: </label>
-  <input type="email" name="email" value="{{profile.email}}" />
+    <br /><br />
 
-  <br /><br />
+    <label for="email">Email: </label>
+    <input type="email" name="email" value="{{profile.email}}" />
 
-  {{!-- <label for="password">Password: </label>
+    <br /><br />
+
+    {{!-- <label for="password">Password: </label>
   <input type="password" name="password" value="{{profile.username}}" />
 
   <br /><br /> --}}
 
-  <button>Edit</button>
+    <button>Edit</button>
 
-</form>
+  </form>
 
+  <form action="/profile/upload" method="POST" enctype="multipart/form-data">
 
-<h3>Agregar imagen de perfil</h3>
+    <label for="image">Picture:</label>
+    <input type="file" name="image" />
 
-<form action="/profile/upload" method="POST" enctype="multipart/form-data">
+    <button type="submit">Add picture</button>
 
-<label for="image">Imagen:</label>
-<input type="file" name="image">
+  </form>
 
-<button type="submit">Añadir Imagen</button>
-
-</form>
+</div>
 
 {{!-- 
 <form action="/profile/{{profile_id}}/delete">
