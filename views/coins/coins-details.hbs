@@ -1,55 +1,81 @@
 <h1>Coin details</h1>
 
-<hr />
+{{#each Detail}}
 
-<table id="detailCoinTable">
-  <thead>
-    <th style="width:185px; height:35px;">Logo</th>
-    <th style="width:185px; height:35px;">Name</th>
-    <th style="width:185px; height:35px;">Symbol</th>
-    <th style="width:185px; height:35px;">Current Price ($)</th>
-    <th style="width:185px; height:35px;">High 24h ($)</th>
-    <th style="width:185px; height:35px;">Low 24h ($)</th>
-    <th style="width:185px; height:35px;">Price Change 24h</th>
-    <th style="width:205px; height:35px;">Market Cap</th>
-    <th style="width:205px; height:35px;">Market Cap Rank</th>
-    <th style="width:185px; height:35px;">Volume</th>    
-  </thead>
+  <img src="{{this.image}}" alt="" width="150px" />
 
-  <tbody>
+  <h2>
+    {{this.name}}
+  </h2>
 
-    {{#each Detail}}  
-        <td>
-          <img src="{{this.image}}" alt="" width="75px" />
-        </td>
-        <td>
-          {{this.name}}
-        </td>
-        <td>
-          {{this.symbol}}
-        </td>
-        <td>
-          {{this.current_price}}
-        </td>
-        <td>
-          {{this.high_24h}}
-        </td>
-        <td>
-          {{this.low_24h}}
-        </td>
-        <td>
-          {{this.price_change_24h}}
-        </td>
-        <td>
-          {{this.market_cap}}
-        </td>
-        <td>
-          {{this.market_cap_rank}}
-        </td>
-        <td>
-          {{this.total_volume}}
-        </td>       
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
+  <h4>
+    {{this.symbol}}
+  </h4>
+  <br /><br /><br />
+  <h3>About price</h3>
+
+  <ul>
+    <li>Current price: {{this.current_price}} $</li>
+    <li>High in 24h: {{this.high_24h}}$</li>
+    <li>Low in 24h :{{this.low_24h}}$</li>
+    <li>Price change in 24h: {{this.price_change_24h}}%</li>
+  </ul>
+
+  <br /><br /><br />
+  <h3>About Market Cap:</h3>
+  <ul>
+    <li>Market cap {{this.market_cap}}</li>
+    <li>Market cap Rank: {{this.market_cap_rank}}</li>
+    <li>Total Volume {{this.total_volume}}</li>
+  </ul>
+{{/each}}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<canvas id="myChart" width="20" height="4"></canvas>
+<script>
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'line',
+    data: { //eje x e y
+        labels: [{{coinDetailClear3}}],
+        datasets: [{
+            label: 'Prices change in 7 days',
+            data: [{{coinDetailClear3}}],
+            borderColor: '#5e9baf',
+            
+        }]
+    },
+    options:{
+      scales:{
+       
+
+
+        x: {
+          
+          ticks:{
+           callback: function(value, index, ticks) {
+                        let day = value /24
+                        let hour = value *60
+                        
+                        return `${day.toFixed(0)} day`
+                    }
+        }
+        },
+       
+      },
+      elements:{
+        line:{
+          borderWidth: 5
+        },
+        point:{
+          radius:7,
+          
+
+        }
+      }
+
+    }
+    
+});
+</script>

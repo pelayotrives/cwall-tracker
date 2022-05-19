@@ -2,18 +2,20 @@
 
   <div id="profile-edit-container">
 
-    <h1 id="profile-edit-container">Edit profile</h1>
+    <h1 id="profile-edit-title">Edit profile</h1>
     <br />
 
     <form action="/profile/edit" method="POST">
 
       <label for="username">Username: </label>
-      <input type="text" name="username" value="{{profile.username}}" />
+      <br>
+      <input class="form-input" type="text" name="username" value="{{profile.username}}" />
 
       <br /><br />
 
       <label for="email">Email: </label>
-      <input type="email" name="email" value="{{profile.email}}" />
+      <br>
+      <input class="form-input" type="email" name="email" value="{{profile.email}}" />
 
       <br /><br />
 
@@ -22,16 +24,17 @@
 
   <br /><br /> --}}
 
-      <button>Edit</button>
+      <button class="send-button">Edit</button>
 
     </form>
 
     <form action="/profile/upload" method="POST" enctype="multipart/form-data">
 
       <label for="image">Picture:</label>
-      <input type="file" name="image" />
-
-      <button type="submit">Add picture</button>
+      <br>
+      <input class="form-input" type="file" name="image" />
+      <br><br>
+      <button  class="send-button" type="submit">Add picture</button>
 
     </form>
 
