@@ -24,6 +24,27 @@ const projectName = "cwall-tracker";
 
 app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
 
+// este middleware es para actualizar las variables globales SIEMPRE (en cada request del usuario)
+app.use((req, res, next) => {
+  if (req.session.user) {
+    // Variable global de HBS para mostrar u ocultar elementos (por ejemplo, algunas zonas del NAV dependiendo del rol del usuario). True por defecto, la asignamos cuando
+    res.locals.userIsActive = true;
+    res.locals.username = req.session.user.username;
+
+    // Al hacer login únicamente. Si el usuario tiene el valor de VIP como true...
+    if (req.session.user.vip === true) {
+      res.locals.userIsVip = true; // Asignamos a esta variable global el valor de true,
+    }
+  } else {
+    //Pasa la variable local al falso para que podamos visualizar lo botones del nav que necesitamos
+    res.locals.userIsActive = false; // Cuando deslogueamos, asignamos a false.
+    res.locals.username = "";
+    res.locals.userIsVip = false; // Cuando deslogueamos, asignamos a false.
+  }
+
+  next();
+});
+
 // 👇 Start handling routes here
 const index = require("./routes/index.routes");
 app.use("/", index);

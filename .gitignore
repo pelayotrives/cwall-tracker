@@ -1,1 +1,2 @@
 # No vamos a ignorar el archivo .env debido a que lo usaremos con fines prácticos a nivel estudiantil. 
+node_modules

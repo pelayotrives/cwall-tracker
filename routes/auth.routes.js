@@ -35,8 +35,7 @@ router.post("/signup", async (req, res, next) => {
 
   if (passwordRegex.test(password) === false) {
     res.render("auth/signup", {
-      errorMessage:
-        "Improve your password!",
+      errorMessage: "Improve your password!",
     });
     //? Este return vacío indica que hasta aquí llega mi ruta. Se traduce a: "Si llega a haber un problema, detén la ejecución de la función anónima".
     return;
@@ -135,23 +134,18 @@ router.post("/login", async (req, res, next) => {
 
     // Guardamos todo el usuario gracias a req.session, en la que buscamos la propiedad user y le decimos que foundUser es la sesión.
     // La traducción es: abrimos una sesión del usuario gracias a esto y la siguiente línea.
-    req.session.user = foundUser;
+    req.session.user = foundUser; // esto es asincrono
     console.log(foundUser);
-    // Variable global de HBS para mostrar u ocultar elementos (por ejemplo, algunas zonas del NAV dependiendo del rol del usuario). True por defecto, la asignamos cuando
-    req.app.locals.userIsActive = true;
-    req.app.locals.username = foundUser.username;
 
-    // Al hacer login únicamente. Si el usuario tiene el valor de VIP como true...
-    if (foundUser.vip === true) {
-      req.app.locals.userIsVip = true; // Asignamos a esta variable global el valor de true,
-    }
+    req.session.save(() => {
+      //! Tenemos que asegurarnos de que se salve la sesión despues de pasar todas las validaciones correctamente.
+      //* Esto será lo último que suceda (después del catch). Una vez se crea el usuario, le redirigimos para que haga login.
+      //! Cuando todo esté hecho en el login, redireccionaremos a profile aquí debajo.
+      res.redirect("/profile");
+    });
   } catch (err) {
     next(err);
   }
-
-  //* Esto será lo último que suceda (después del catch). Una vez se crea el usuario, le redirigimos para que haga login.
-  //! Cuando todo esté hecho en el login, redireccionaremos a profile aquí debajo.
-  res.redirect("/profile");
 });
 
 //? ---------------------------------------------------------------------------------
@@ -160,17 +154,12 @@ router.post("/login", async (req, res, next) => {
 
 // * POST "/auth/logout" => Cerrar sesión del usuario.
 
-router.post("/logout", async (req, res, next) => {
-  try {
-    // Cierra la req.session del usuario logueado
-    await req.session.destroy();
-    //Pasa la variable local al falso para que podamos visualizar lo botones del nav que necesitamos
-    req.app.locals.userIsActive = false; // Cuando deslogueamos, asignamos a false.
-    req.app.locals.userIsVip = false; // Cuando deslogueamos, asignamos a false.
+router.post("/logout", (req, res, next) => {
+  // Cierra la req.session del usuario logueado
+  req.session.destroy(() => {
+    //! Destroy es un método asíncrono, entocnes hay que pasarle una función para asegurarnos de que se ejecute DESPUÉS de destruir la sesión.
     res.redirect("/");
-  } catch (err) {
-    next(err);
-  }
+  });
 });
 
 module.exports = router;
