@@ -30,7 +30,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #5e9baf;
+  color: rgb(50,250,0,0.8);
   font-size: 17;
 }
 
@@ -125,7 +125,7 @@ footer {
   width: 40%;
   height: 60%;
   border-radius: 80px;
-  box-shadow: 10px 10px 10px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 40px 5px rgba(50, 250, 0, 0.8)
 }
 
 #signup-content {
@@ -156,7 +156,7 @@ footer {
 }
 
 .send-button:hover {
-  background: #5e9baf;
+  background: rgb(50,250,0,0.8);
   color: white;
   padding: 10px 55px;
   border-radius: 15px;
@@ -197,7 +197,12 @@ footer {
   width: 40%;
   height: 60%;
   border-radius: 80px;
-  box-shadow: 10px 10px 10px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 40px 5px rgba(0, 0, 0, 0.8);
+  transition: ease-in-out 1s;
+}
+
+#login-container:hover {
+  box-shadow: 0px 10px 40px 5px rgba(50, 250, 0, 0.8)
 }
 
 #login-content {
@@ -238,13 +243,17 @@ footer {
 
 #coins-prices-container a {
   text-decoration: none;
-  color: #5e9baf;
+  font-weight: bold;
+  font-style: italic;
+  color: white;
   transition: all 500ms;
 }
 
 #coins-prices-container a:hover {
   text-decoration: none;
-  color: red;
+  font-size: 18px;
+  font-style: normal;
+  color: rgb(50,250,0,0.8);
 }
 
 #coins-prices-thead {
@@ -275,7 +284,7 @@ footer {
 }
 
 #nav-button:hover {
-  background: #5e9baf;
+  background: rgb(50,250,0,0.8);
   color: white;
   border-radius: 15px;
   padding: 3px 35px;
@@ -297,7 +306,7 @@ footer {
   margin: 0 auto;
   width: 40%;
   border-radius: 80px;
-  box-shadow: 10px 10px 10px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 40px 5px rgba(50, 250, 0, 0.8)
 }
 
 #profile-content {
@@ -348,5 +357,5 @@ footer {
 }
 
 .red-name {
-  color: red;
+  color: rgb(50,250,0,0.8);;
 }
