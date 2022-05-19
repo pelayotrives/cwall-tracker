@@ -398,6 +398,11 @@ footer {
   box-shadow: 0px 10px 40px 5px rgba(0, 0, 0, 0.8)
 }
 
+#profile-edit-content:hover {
+  transition: ease-in-out 1s;
+  box-shadow: 0px 10px 40px 5px rgba(50, 250, 0, 0.8)
+}
+
 #profile-edit-title {
   font-family: "Koulen";
   font-size: 75px;
