@@ -603,3 +603,24 @@ footer {
   margin-bottom: 60px;
   
 }
+
+/* -------------------- Wallet edit ---------------------- */
+.modify-button-wallet{
+  background: white;
+  color: black;
+  padding: 10px 35px;
+  border-radius: 15px;
+  transition:ease-in-out 500ms;
+
+  /* display: flex;
+  margin: 0 auto; */
+}
+.modify-button-wallet:hover{
+  background-color:rgb(50,250,0,0.8); 
+  padding: 10px 55px;
+  color: white;
+}
+#red-hover:hover{
+  background: red;
+  color: white;
+}

@@ -48,11 +48,10 @@ router.get("/:id", async (req, res, next) => {
     let coinDetailClear = coinDetail.data; //Aqui accedemos solo a la data
     let coinDetailClear2 = coinDetailClear[0].sparkline_in_7d; //Aqui accedemos a la propiedad sparkline_in_7d
     let coinDetailClear3 = coinDetailClear2.price; //aqui tenemos el array que necesitamos
-    console.log(coinDetailClear3);
 
     res.render("coins/coins-details.hbs", {
       Detail: coinDetail.data,
-      coinDetailClear3
+      coinDetailClear3,
     });
   } catch (err) {
     next(err);

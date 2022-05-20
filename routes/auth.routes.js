@@ -150,7 +150,7 @@ router.post("/login", async (req, res, next) => {
 
 //? ---------------------------------------------------------------------------------
 
-// TODO ----------> Log In
+// TODO ----------> Log Out
 
 // * POST "/auth/logout" => Cerrar sesión del usuario.
 
