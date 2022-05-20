@@ -53,6 +53,10 @@ footer {
   letter-spacing: 1px;
 }
 
+.bg-malla{
+  background-image: url('../images/metal2.jpg');
+}
+
 /* -------------------- Index ---------------------- */
 
 /* Las tres propiedades del final son perfectas para alinear un texto de forma vertical. */
