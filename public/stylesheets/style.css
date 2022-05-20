@@ -129,12 +129,13 @@ footer {
   top: 40%;
   transform: translateY(-50%);
   padding: 30px;
-  background-color: rgb(91, 91, 91, 0.3);
+  background-color: rgb(91, 91, 91);
   margin: 0 auto;
   width: 40%;
   height: 60%;
   border-radius: 80px;
   box-shadow: 0px 10px 40px 5px rgba(0, 0, 0, 0.8);
+  background: linear-gradient(180deg, black, rgb(38, 38, 38));
 }
 
 #signup-container:hover {
@@ -150,6 +151,7 @@ footer {
   align-content: center;
   position: relative;
   top: 4%;
+  background-color: rgb(91, 91, 91,);
 }
 
 #signup-title {
@@ -206,12 +208,13 @@ footer {
   top: 40%;
   transform: translateY(-50%);
   padding: 30px;
-  background-color: rgb(91, 91, 91, 0.3);
+  background: linear-gradient(180deg, black, rgb(38, 38, 38));
   margin: 0 auto;
   width: 40%;
   height: 60%;
   border-radius: 80px;
   box-shadow: 0px 10px 40px 5px rgba(0, 0, 0, 0.8);
+  
 }
 
 #login-container:hover {
@@ -227,6 +230,7 @@ footer {
   align-content: center;
   position: relative;
   top: 4%;
+  
 }
 
 #login-title {
@@ -316,7 +320,7 @@ footer {
   top: 43%;
   transform: translateY(-50%);
   padding: 30px;
-  background-color: rgb(91, 91, 91, 0.3);
+  background: linear-gradient(180deg, black, rgb(38, 38, 38));
   margin: 0 auto;
   width: 40%;
   border-radius: 80px;
@@ -336,6 +340,7 @@ footer {
   align-content: center;
   position: relative;
   text-align: center;
+  
 }
 
 #profile-title {
@@ -391,7 +396,7 @@ footer {
   top: 43%;
   transform: translateY(-50%);
   padding: 30px;
-  background-color: rgb(91, 91, 91, 0.3);
+  background: linear-gradient(180deg, black, rgb(38, 38, 38));
   margin: 0 auto;
   width: 40%;
   border-radius: 80px;
@@ -523,4 +528,9 @@ footer {
 #chart-wallet-container {
   margin-left: 100px;
   margin-right: 100px;
+}
+
+.bg-malla{
+  background-image: url('../images/metal2.jpg');
+  
 }

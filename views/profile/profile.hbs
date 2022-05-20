@@ -1,3 +1,6 @@
+<body class="bg-malla">
+</body>
+
 <div id="profile-container">
 
   <div id="profile-content">
@@ -8,8 +11,12 @@
     <div id="profile-image">
       <img src="{{profile.image}}" alt="Your profile pic" width="300px" />
       <br /><br />
-      <p>Your current username is <span class="red-name"><strong>{{profile.username}}</strong></span> </p>
-      <p>Your current email is <span class="red-name"><strong>{{profile.email}}</strong></span> </p>
+      <p>Your current username is
+        <span class="red-name"><strong>{{profile.username}}</strong></span>
+      </p>
+      <p>Your current email is
+        <span class="red-name"><strong>{{profile.email}}</strong></span>
+      </p>
       <br />
     </div>
 
@@ -17,15 +24,19 @@
       <a href="/profile/edit"><button class="send-button">Edit profile</button></a>
     </div>
 
-    <br><br>
+    <br /><br />
 
     <div id="profile-buttons">
       <form action="/profile/delete" method="POST">
-        <button class="profile-send-button" id="profile-send-button-red">Delete</button>
+        <button
+          class="profile-send-button"
+          id="profile-send-button-red"
+        >Delete</button>
       </form>
 
       <form action="/auth/logout" method="POST">
-        <button class="profile-send-button" id="profile-send-button-orange">Log Out</button>
+        <button class="profile-send-button" id="profile-send-button-orange">Log
+          Out</button>
       </form>
     </div>
 
